@@ -13,6 +13,7 @@
 		8664277C24E3E41900835CA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8664277A24E3E41900835CA6 /* Main.storyboard */; };
 		8664277E24E3E41C00835CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8664277D24E3E41C00835CA6 /* Assets.xcassets */; };
 		8664278124E3E41C00835CA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8664277F24E3E41C00835CA6 /* LaunchScreen.storyboard */; };
+		8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8664277D24E3E41C00835CA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8664278024E3E41C00835CA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8664278224E3E41C00835CA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				8664277424E3E41900835CA6 /* AppDelegate.swift */,
 				8664277624E3E41900835CA6 /* SceneDelegate.swift */,
 				8664277824E3E41900835CA6 /* UsersTableViewController.swift */,
+				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
 				8664277A24E3E41900835CA6 /* Main.storyboard */,
 				8664277D24E3E41C00835CA6 /* Assets.xcassets */,
 				8664277F24E3E41C00835CA6 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */,
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
+				8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
