@@ -9,19 +9,18 @@
 import UIKit
 
 class UserItemTableViewCell: UITableViewCell {
+  @IBOutlet weak var avatarView: UIImageView!
+  @IBOutlet weak var userDetailsLabel: UILabel!
+  @IBOutlet weak var userNameLabel: UILabel!
   
-  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
+  override func awakeFromNib() {
+    super.awakeFromNib()
     
     setupUI()
   }
-  
+
   func setupUI() {
-    
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+    avatarView.layer.cornerRadius = avatarView.frame.width / 2
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +31,11 @@ class UserItemTableViewCell: UITableViewCell {
 
 }
 
-extension UITableViewCell {  
+extension UITableViewCell {
+  static var nib: UINib {
+    return UINib(nibName: String(describing: self), bundle: nil)
+  }
+  
   ///Identifier to be use for table header view
   class var reuseIdentifierString: String {
      return String(describing: self)

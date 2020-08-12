@@ -13,8 +13,8 @@ class UsersTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-
-    tableView.register(UserItemTableViewCell.self, forCellReuseIdentifier: UserItemTableViewCell.reuseIdentifierString)
+    
+    tableView.register(UserItemTableViewCell.nib, forCellReuseIdentifier: UserItemTableViewCell.reuseIdentifierString)
   }
   
 

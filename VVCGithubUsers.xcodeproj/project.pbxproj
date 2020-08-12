@@ -14,6 +14,7 @@
 		8664277E24E3E41C00835CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8664277D24E3E41C00835CA6 /* Assets.xcassets */; };
 		8664278124E3E41C00835CA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8664277F24E3E41C00835CA6 /* LaunchScreen.storyboard */; };
 		8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */; };
+		86700CEC24E424A3008F79D8 /* UserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8664278024E3E41C00835CA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8664278224E3E41C00835CA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemTableViewCell.swift; sourceTree = "<group>"; };
+		86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,23 @@
 			children = (
 				8664277424E3E41900835CA6 /* AppDelegate.swift */,
 				8664277624E3E41900835CA6 /* SceneDelegate.swift */,
-				8664277824E3E41900835CA6 /* UsersTableViewController.swift */,
-				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
+				86700CED24E425A0008F79D8 /* UsersList */,
 				8664277A24E3E41900835CA6 /* Main.storyboard */,
 				8664277D24E3E41C00835CA6 /* Assets.xcassets */,
 				8664277F24E3E41C00835CA6 /* LaunchScreen.storyboard */,
 				8664278224E3E41C00835CA6 /* Info.plist */,
 			);
 			path = VVCGithubUsers;
+			sourceTree = "<group>";
+		};
+		86700CED24E425A0008F79D8 /* UsersList */ = {
+			isa = PBXGroup;
+			children = (
+				8664277824E3E41900835CA6 /* UsersTableViewController.swift */,
+				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
+				86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */,
+			);
+			path = UsersList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +142,7 @@
 				8664278124E3E41C00835CA6 /* LaunchScreen.storyboard in Resources */,
 				8664277E24E3E41C00835CA6 /* Assets.xcassets in Resources */,
 				8664277C24E3E41900835CA6 /* Main.storyboard in Resources */,
+				86700CEC24E424A3008F79D8 /* UserItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
