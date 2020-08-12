@@ -14,7 +14,9 @@ class UsersTableViewController: UITableViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-    NetworkManager.shared.fetchUsers()
+    NetworkManager.shared.fetchUsers { (users, error) in
+      
+    }
     
     tableView.register(UserItemTableViewCell.nib, forCellReuseIdentifier: UserItemTableViewCell.reuseIdentifierString)
   }

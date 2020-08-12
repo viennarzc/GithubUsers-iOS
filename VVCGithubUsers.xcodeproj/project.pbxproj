@@ -16,6 +16,7 @@
 		8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */; };
 		86700CEC24E424A3008F79D8 /* UserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */; };
 		86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CEF24E42793008F79D8 /* NetworkManager.swift */; };
+		86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CF224E4343A008F79D8 /* GitHubUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemTableViewCell.swift; sourceTree = "<group>"; };
 		86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserItemTableViewCell.xib; sourceTree = "<group>"; };
 		86700CEF24E42793008F79D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		86700CF224E4343A008F79D8 /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +64,10 @@
 		8664277324E3E41900835CA6 /* VVCGithubUsers */ = {
 			isa = PBXGroup;
 			children = (
-				86700CEE24E42785008F79D8 /* Networking */,
 				8664277424E3E41900835CA6 /* AppDelegate.swift */,
 				8664277624E3E41900835CA6 /* SceneDelegate.swift */,
+				86700CF124E4312A008F79D8 /* Model */,
+				86700CEE24E42785008F79D8 /* Networking */,
 				86700CED24E425A0008F79D8 /* UsersList */,
 				8664277A24E3E41900835CA6 /* Main.storyboard */,
 				8664277D24E3E41C00835CA6 /* Assets.xcassets */,
@@ -90,6 +93,14 @@
 				86700CEF24E42793008F79D8 /* NetworkManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		86700CF124E4312A008F79D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86700CF224E4343A008F79D8 /* GitHubUser.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */,
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,
+				86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
 				8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */,
 			);

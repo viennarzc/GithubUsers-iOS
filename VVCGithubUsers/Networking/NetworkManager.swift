@@ -10,42 +10,53 @@ import Foundation
 
 final class NetworkManager {
   static let shared = NetworkManager()
-  
+
   private let session = URLSession(configuration: .default)
   private let url = URL(string: "​https://api.github.com/users?since=0")
   var dataTask: URLSessionDataTask?
-  
-  func fetchUsers(since: Int = 0) {
+
+  func fetchUsers(since: Int = 0, completion: @escaping ([GitHubUser]?, Error?) -> Void) {
 //    let task = session.
-    
-    if var urlComponents = URLComponents(string: "https://api.github.com/users"){
+
+    if var urlComponents = URLComponents(string: "https://api.github.com/users") {
       urlComponents.query = "since=\(since)"
-      
+
       guard let url = urlComponents.url else { return }
-      
+
       dataTask = session.dataTask(with: url) { [weak self] data, response, error in
         defer {
           self?.dataTask = nil
         }
-        
+
         if let error = error {
-          print(error.localizedDescription)
+          completion(nil, error)
           return
         }
-        
+
+        //Decode
+
         if let data = data,
           let response = response as? HTTPURLResponse,
           response.statusCode == 200 {
-          
-          print("data",data)
-          
+
+          let decoder = JSONDecoder()
+
+          do {
+            let users = try decoder.decode([GitHubUser].self, from: data)
+
+            completion(users, nil)
+          } catch {
+            completion(nil, error)
+          }
+
+
         }
-        
+
       }
     }
-    
+
     dataTask?.resume()
-    
-    
+
+
   }
 }
