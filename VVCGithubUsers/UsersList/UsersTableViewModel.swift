@@ -20,16 +20,14 @@ class UsersTableViewModel {
     NetworkManager.shared.fetchUsers { (result) in
       switch result {
       case .failure(let error):
-        print(error)
         completion(error)
         
       case .success(let users):
-        
-        completion(nil)
         self.cellViewModels = users.enumerated().map { (index, element: GitHubUser) in
           return UserTableCellViewModel(user: element, index: index)
         }
-
+        
+        completion(nil)
       }
     }
   }

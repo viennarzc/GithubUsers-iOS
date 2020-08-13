@@ -30,7 +30,7 @@ struct GitHubUser: Codable {
   
   
   var hasNotes: Bool {
-    notes != nil || notes != ""
+    notes != nil && notes != ""
   }
   
   var notes: String? {

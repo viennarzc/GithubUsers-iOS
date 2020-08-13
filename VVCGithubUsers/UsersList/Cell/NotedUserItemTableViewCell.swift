@@ -27,6 +27,7 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
+    setupUI()
   }
   
 
