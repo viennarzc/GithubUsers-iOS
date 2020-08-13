@@ -59,21 +59,24 @@ extension UsersTableViewController {
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 60
   }
-  
+
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    
+
     if let visiblePaths = tableView.indexPathsForVisibleRows,
       visiblePaths.contains([0, viewModel.cellViewModels.count - 1]) {
 
-        // last cell is partially or fully visible
+      // last cell is partially or fully visible
       viewModel.fetchMoreUsers { (error) in
         if let error = error {
           print(error)
-          
+
           return
         }
-        
-        tableView.reloadData()
+
+        DispatchQueue.main.async {
+          tableView.reloadData()
+        }
+
       }
     }
   }

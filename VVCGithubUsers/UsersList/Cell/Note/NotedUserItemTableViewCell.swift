@@ -9,29 +9,47 @@
 import UIKit
 
 class NotedUserItemTableViewCell: UITableViewCell, Notable {
-  
+
+  var imageURL: URL?
+
   func update() {
     guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
+    self.imageURL = url
+
+    // retrieves image if already available in cache
+    if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
+      self.avatarView.image = imageFromCache
+      return
+    }
+
+    //load image
     NetworkManager.shared.loadImages(with: url) { (image, error) in
       if error != nil {
         return
       }
 
-      self.avatarView.image = image
+      DispatchQueue.main.async(execute: {
+
+        if let image = image {
+          imageCache.setObject(image, forKey: url as AnyObject)
+        }
+
+        if self.imageURL == url {
+          self.avatarView.image = image
+        }
+
+      })
+
     }
-
-
-    userNameLabel.text = vm.userName.capitalized
-    userDetailsLabel.text = "details"
   }
-  
-  override func prepareForReuse() {
-     super.prepareForReuse()
 
-     //we set to default to avoid images being reused in other cells
-     avatarView.image = UIImage(systemName: "person.circle")
-     
-   }
+  override func prepareForReuse() {
+    super.prepareForReuse()
+
+    //we set to default to avoid images being reused in other cells
+    avatarView.image = UIImage(systemName: "person.circle")
+
+  }
 
   var viewModel: UserTableCellViewModel? {
     didSet {
