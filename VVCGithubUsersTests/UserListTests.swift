@@ -63,12 +63,8 @@ class UserListTests: XCTestCase {
 
     """
     
-
-
-    /// When the Data initializer is throwing an error, the test will fail.
     let jsonData: Data = jsonString.data(using: .utf8)!
-
-    /// The `XCTAssertNoThrow` can be used to get extra context about the throw
+    
     XCTAssertNoThrow(try JSONDecoder().decode(UserProfile.self, from: jsonData))
   }
 
