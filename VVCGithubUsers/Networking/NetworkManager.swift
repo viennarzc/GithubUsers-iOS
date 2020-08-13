@@ -19,9 +19,16 @@ final class NetworkManager {
 
   static let shared = NetworkManager()
 
-  private let session = URLSession(configuration: .default)
+  private let session: URLSession?
   private let urlString = "https://api.github.com/users"
   private var dataTask: URLSessionDataTask?
+  
+  init() {
+    let config = URLSessionConfiguration.default
+    config.waitsForConnectivity = true
+    
+    session = URLSession(configuration: config)
+  }
 
   func fetchUsers(since: Int = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
@@ -30,7 +37,7 @@ final class NetworkManager {
 
       guard let url = urlComponents.url else { return }
 
-      dataTask = session.dataTask(with: url) { [weak self] data, response, error in
+      dataTask = session?.dataTask(with: url) { [weak self] data, response, error in
         defer {
           self?.dataTask = nil
         }
