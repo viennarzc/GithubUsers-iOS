@@ -24,7 +24,19 @@
 		86700CFE24E4DD34008F79D8 /* UserTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFD24E4DD34008F79D8 /* UserTableCellViewModel.swift */; };
 		86700D0124E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */; };
 		86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */; };
+		86700D4C24E53359008F79D8 /* VVCGithubUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D4B24E53359008F79D8 /* VVCGithubUsersTests.swift */; };
+		86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5324E535DF008F79D8 /* UserListTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86700D4E24E53359008F79D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8664276924E3E41900835CA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8664277024E3E41900835CA6;
+			remoteInfo = VVCGithubUsers;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8664277124E3E41900835CA6 /* VVCGithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVCGithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,10 +58,21 @@
 		86700CFD24E4DD34008F79D8 /* UserTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableCellViewModel.swift; sourceTree = "<group>"; };
 		86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedUserItemTableViewCell.swift; sourceTree = "<group>"; };
 		86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvertedUserItemTableViewCell.xib; sourceTree = "<group>"; };
+		86700D4924E53358008F79D8 /* VVCGithubUsersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVCGithubUsersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86700D4B24E53359008F79D8 /* VVCGithubUsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVCGithubUsersTests.swift; sourceTree = "<group>"; };
+		86700D4D24E53359008F79D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86700D5324E535DF008F79D8 /* UserListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8664276E24E3E41900835CA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86700D4624E53358008F79D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				8664277324E3E41900835CA6 /* VVCGithubUsers */,
+				86700D4A24E53359008F79D8 /* VVCGithubUsersTests */,
 				8664277224E3E41900835CA6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				8664277124E3E41900835CA6 /* VVCGithubUsers.app */,
+				86700D4924E53358008F79D8 /* VVCGithubUsersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +181,16 @@
 			path = Normal;
 			sourceTree = "<group>";
 		};
+		86700D4A24E53359008F79D8 /* VVCGithubUsersTests */ = {
+			isa = PBXGroup;
+			children = (
+				86700D4B24E53359008F79D8 /* VVCGithubUsersTests.swift */,
+				86700D5324E535DF008F79D8 /* UserListTests.swift */,
+				86700D4D24E53359008F79D8 /* Info.plist */,
+			);
+			path = VVCGithubUsersTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +211,24 @@
 			productReference = 8664277124E3E41900835CA6 /* VVCGithubUsers.app */;
 			productType = "com.apple.product-type.application";
 		};
+		86700D4824E53358008F79D8 /* VVCGithubUsersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86700D5224E53359008F79D8 /* Build configuration list for PBXNativeTarget "VVCGithubUsersTests" */;
+			buildPhases = (
+				86700D4524E53358008F79D8 /* Sources */,
+				86700D4624E53358008F79D8 /* Frameworks */,
+				86700D4724E53358008F79D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86700D4F24E53359008F79D8 /* PBXTargetDependency */,
+			);
+			name = VVCGithubUsersTests;
+			productName = VVCGithubUsersTests;
+			productReference = 86700D4924E53358008F79D8 /* VVCGithubUsersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -188,6 +241,10 @@
 				TargetAttributes = {
 					8664277024E3E41900835CA6 = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					86700D4824E53358008F79D8 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 8664277024E3E41900835CA6;
 					};
 				};
 			};
@@ -205,6 +262,7 @@
 			projectRoot = "";
 			targets = (
 				8664277024E3E41900835CA6 /* VVCGithubUsers */,
+				86700D4824E53358008F79D8 /* VVCGithubUsersTests */,
 			);
 		};
 /* End PBXProject section */
@@ -220,6 +278,13 @@
 				8664277C24E3E41900835CA6 /* Main.storyboard in Resources */,
 				86700CEC24E424A3008F79D8 /* UserItemTableViewCell.xib in Resources */,
 				86700CF924E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86700D4724E53358008F79D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +309,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86700D4524E53358008F79D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */,
+				86700D4C24E53359008F79D8 /* VVCGithubUsersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86700D4F24E53359008F79D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8664277024E3E41900835CA6 /* VVCGithubUsers */;
+			targetProxy = 86700D4E24E53359008F79D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8664277A24E3E41900835CA6 /* Main.storyboard */ = {
@@ -418,6 +500,46 @@
 			};
 			name = Release;
 		};
+		86700D5024E53359008F79D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6UWE2EP59T;
+				INFOPLIST_FILE = VVCGithubUsersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvc.VVCGithubUsersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVCGithubUsers.app/VVCGithubUsers";
+			};
+			name = Debug;
+		};
+		86700D5124E53359008F79D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6UWE2EP59T;
+				INFOPLIST_FILE = VVCGithubUsersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvc.VVCGithubUsersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVCGithubUsers.app/VVCGithubUsers";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -435,6 +557,15 @@
 			buildConfigurations = (
 				8664278624E3E41C00835CA6 /* Debug */,
 				8664278724E3E41C00835CA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86700D5224E53359008F79D8 /* Build configuration list for PBXNativeTarget "VVCGithubUsersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86700D5024E53359008F79D8 /* Debug */,
+				86700D5124E53359008F79D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
