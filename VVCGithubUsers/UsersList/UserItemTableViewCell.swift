@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserItemTableViewCell: UITableViewCell {
+class UserItemTableViewCell: UITableViewCell, Normal {
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!

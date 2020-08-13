@@ -9,6 +9,7 @@
 import Foundation
 
 protocol UserTableCell {
+  func setupUI()
   
 }
 
