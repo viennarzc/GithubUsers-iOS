@@ -27,6 +27,15 @@ struct GitHubUser: Codable {
   let receivedEventsURL: String
   let type: String
   let siteAdmin: Bool
+  
+  
+  var hasNotes: Bool {
+    notes != nil || notes != ""
+  }
+  
+  var notes: String? {
+    ""
+  }
 
   enum CodingKeys: String, CodingKey {
     case login

@@ -9,13 +9,19 @@
 import Foundation
 
 final class NetworkManager {
+  enum Result<Success, Failure> where Failure: Error {
+      case success(Success)
+      case failure(Failure)
+  }
+  
+  
   static let shared = NetworkManager()
 
   private let session = URLSession(configuration: .default)
   private let urlString = "https://api.github.com/users"
   private var dataTask: URLSessionDataTask?
 
-  func fetchUsers(since: Int = 0, completion: @escaping ([GitHubUser]?, Error?) -> Void) {
+  func fetchUsers(since: Int = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
     if var urlComponents = URLComponents(string: urlString) {
       urlComponents.query = "since=\(since)"
@@ -28,7 +34,7 @@ final class NetworkManager {
         }
 
         if let error = error {
-          completion(nil, error)
+          completion(.failure(error))
           return
         }
 
@@ -43,9 +49,9 @@ final class NetworkManager {
           do {
             let users = try decoder.decode([GitHubUser].self, from: data)
 
-            completion(users, nil)
+            completion(.success(users))
           } catch {
-            completion(nil, error)
+            completion(.failure(error))
           }
 
 

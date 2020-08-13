@@ -20,6 +20,7 @@
 		86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CF424E4C78C008F79D8 /* UserTableCell.swift */; };
 		86700CF824E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CF624E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift */; };
 		86700CF924E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700CF724E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib */; };
+		86700CFC24E4CCA0008F79D8 /* UsersTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFB24E4CCA0008F79D8 /* UsersTableViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		86700CF424E4C78C008F79D8 /* UserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableCell.swift; sourceTree = "<group>"; };
 		86700CF624E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotedUserItemTableViewCell.swift; sourceTree = "<group>"; };
 		86700CF724E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotedUserItemTableViewCell.xib; sourceTree = "<group>"; };
+		86700CFB24E4CCA0008F79D8 /* UsersTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,11 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				8664277824E3E41900835CA6 /* UsersTableViewController.swift */,
-				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
-				86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */,
-				86700CF424E4C78C008F79D8 /* UserTableCell.swift */,
-				86700CF624E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift */,
-				86700CF724E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib */,
+				86700CFB24E4CCA0008F79D8 /* UsersTableViewModel.swift */,
+				86700CFA24E4CC78008F79D8 /* Cell */,
 			);
 			path = UsersList;
 			sourceTree = "<group>";
@@ -110,6 +109,18 @@
 				86700CF224E4343A008F79D8 /* GitHubUser.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		86700CFA24E4CC78008F79D8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				86700CF424E4C78C008F79D8 /* UserTableCell.swift */,
+				86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */,
+				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
+				86700CF624E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift */,
+				86700CF724E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */,
+				86700CFC24E4CCA0008F79D8 /* UsersTableViewModel.swift in Sources */,
 				8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */,
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,

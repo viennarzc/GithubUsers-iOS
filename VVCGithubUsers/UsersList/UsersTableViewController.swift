@@ -10,34 +10,33 @@ import UIKit
 
 class UsersTableViewController: UITableViewController {
   
-  var githubUsers: [GitHubUser] = []
+//  var githubUsers: [GitHubUser] = []
+  
+  var viewModel = UsersTableViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-    NetworkManager.shared.fetchUsers { (users, error) in
-      
-      if let error = error {
-        print(error)
-        return
-      }
-      
-      if let users = users {
-        self.githubUsers = users
+    tableView.register(UserItemTableViewCell.nib, forCellReuseIdentifier: UserItemTableViewCell.reuseIdentifierString)
+    tableView.register(NotedUserItemTableViewCell.nib, forCellReuseIdentifier: NotedUserItemTableViewCell.reuseIdentifierString)
+    
+    viewModel.fetchUsers { (error) in
+      guard let error = error else {
         
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
-
+        
+        return
+        
       }
       
+      print(error)
+      
     }
-    
-    tableView.register(UserItemTableViewCell.nib, forCellReuseIdentifier: UserItemTableViewCell.reuseIdentifierString)
   }
   
-
 }
 
 //MARK: - TableView DataSource and Delegate
@@ -45,7 +44,7 @@ class UsersTableViewController: UITableViewController {
 
 extension UsersTableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return githubUsers.count
+    return viewModel.cellViewModels.count
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,12 +61,7 @@ extension UsersTableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: UserItemTableViewCell
-      = tableView.dequeueReusableCell(withIdentifier: UserItemTableViewCell.reuseIdentifierString, for: indexPath) as! UserItemTableViewCell
-    
-    cell.userNameLabel.text = githubUsers[indexPath.row].login
-
-    return cell
+    return viewModel.cellViewModels[indexPath.row].cellInstance(tableView: tableView, indexPath: indexPath)
   }
 }
 
