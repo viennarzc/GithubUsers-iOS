@@ -88,22 +88,22 @@
                                         <rect key="frame" x="0.0" y="250" width="414" height="100"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-AW-xtu">
-                                                <rect key="frame" x="186" y="14.5" width="42" height="71.5"/>
+                                                <rect key="frame" x="15" y="14.5" width="384" height="71.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYy-xR-XBb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSt-gj-Wum">
-                                                        <rect key="frame" x="0.0" y="25.5" width="42" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="25.5" width="384" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSP-Fq-aUq">
-                                                        <rect key="frame" x="0.0" y="51" width="42" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="51" width="384" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -116,6 +116,7 @@
                                             <constraint firstAttribute="height" constant="100" id="ZlO-Jr-FDs"/>
                                             <constraint firstItem="4KJ-AW-xtu" firstAttribute="centerY" secondItem="o32-AO-yLO" secondAttribute="centerY" id="by4-eQ-aYA"/>
                                             <constraint firstItem="4KJ-AW-xtu" firstAttribute="centerX" secondItem="o32-AO-yLO" secondAttribute="centerX" id="wR3-ST-Ba2"/>
+                                            <constraint firstItem="4KJ-AW-xtu" firstAttribute="leading" secondItem="o32-AO-yLO" secondAttribute="leading" constant="15" id="yCH-XJ-9JW"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxv-GP-heF">
@@ -156,16 +157,19 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAp-ix-f6w">
-                                        <rect key="frame" x="32" y="600.5" width="350" height="48"/>
+                                        <rect key="frame" x="15" y="600.5" width="384" height="48"/>
                                         <color key="backgroundColor" red="0.1137254902" green="0.72313784250000002" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="350" id="0mT-4V-Onp"/>
                                             <constraint firstAttribute="height" constant="48" id="lfO-cO-TG9"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Save"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="EAp-ix-f6w" firstAttribute="leading" secondItem="wve-FM-o6V" secondAttribute="leading" constant="15" id="6hO-BF-JwV"/>
+                                    <constraint firstAttribute="trailing" secondItem="EAp-ix-f6w" secondAttribute="trailing" constant="15" id="W2Q-Ax-7Jr"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
