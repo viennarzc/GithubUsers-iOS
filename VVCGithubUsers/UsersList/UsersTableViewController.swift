@@ -21,6 +21,8 @@ class UsersTableViewController: UITableViewController {
     tableView.register(InvertedUserItemTableViewCell.nib, forCellReuseIdentifier: InvertedUserItemTableViewCell.reuseIdentifierString)
 
     tableView.separatorStyle = .none
+    
+    tableView.backgroundColor = .systemGray5
 
   }
 
@@ -109,6 +111,7 @@ extension UsersTableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
     let cell = viewModel.cellViewModels[indexPath.row].cellInstance(tableView: tableView, indexPath: indexPath)
+    
     return cell
   }
 }

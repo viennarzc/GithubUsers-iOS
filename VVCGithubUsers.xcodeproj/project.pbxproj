@@ -25,6 +25,7 @@
 		86700D0124E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */; };
 		86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */; };
 		86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5324E535DF008F79D8 /* UserListTests.swift */; };
+		86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		86700D4924E53358008F79D8 /* VVCGithubUsersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVCGithubUsersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86700D4D24E53359008F79D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86700D5324E535DF008F79D8 /* UserListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTests.swift; sourceTree = "<group>"; };
+		86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		8664277324E3E41900835CA6 /* VVCGithubUsers */ = {
 			isa = PBXGroup;
 			children = (
+				86700D5524E58178008F79D8 /* Extensions */,
 				8664277424E3E41900835CA6 /* AppDelegate.swift */,
 				8664277624E3E41900835CA6 /* SceneDelegate.swift */,
 				86700CF124E4312A008F79D8 /* Model */,
@@ -186,6 +189,14 @@
 				86700D4D24E53359008F79D8 /* Info.plist */,
 			);
 			path = VVCGithubUsersTests;
+			sourceTree = "<group>";
+		};
+		86700D5524E58178008F79D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
 				8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */,
+				86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

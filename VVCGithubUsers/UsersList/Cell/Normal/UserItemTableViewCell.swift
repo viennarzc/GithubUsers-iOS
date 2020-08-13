@@ -9,16 +9,17 @@
 import UIKit
 
 class UserItemTableViewCell: UITableViewCell, Normal {
-  func setContainerBorder() {
-    container.layer.borderColor = UIColor.systemGray6.cgColor
-    container.layer.borderWidth = 2
-    container.layer.cornerRadius = 5
-  }
   
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var container: UIView!
+  
+  func setContainerBorder() {
+    container.layer.borderColor = UIColor.separator.cgColor
+    container.layer.borderWidth = 1
+    container.layer.cornerRadius = 5
+  }
   
   var imageURL: URL?
 
@@ -78,6 +79,7 @@ class UserItemTableViewCell: UITableViewCell, Normal {
 
   func setupUI() {
     avatarView.layer.cornerRadius = avatarView.frame.width / 2
+    backgroundColor = .clear
     setContainerBorder()
   }
 
@@ -89,31 +91,3 @@ class UserItemTableViewCell: UITableViewCell, Normal {
   }
 
 }
-
-extension UITableViewCell {
-  static var nib: UINib {
-    return UINib(nibName: String(describing: self), bundle: nil)
-  }
-
-  ///Identifier to be use for table header view
-  class var reuseIdentifierString: String {
-    return String(describing: self)
-  }
-
-}
-
-
-extension UIView {
-  /// Add Dropshadow
-  /// - Parameter scale: Set if should do rasterization scale
-  func dropShadow(scale: Bool = true, shadowColor: UIColor = .systemGray5) {
-    layer.masksToBounds = false
-    layer.shadowColor = shadowColor.cgColor
-    layer.shadowOpacity = 0.3
-    layer.shadowOffset = .zero
-    layer.shadowRadius = 10
-    layer.shouldRasterize = true
-    layer.rasterizationScale = scale ? UIScreen.main.scale : 1
-  }
-}
-

@@ -10,8 +10,8 @@ import UIKit
 
 class NotedUserItemTableViewCell: UITableViewCell, Notable {
   func setContainerBorder() {
-    container.layer.borderColor = UIColor.systemGray6.cgColor
-    container.layer.borderWidth = 2
+    container.layer.borderColor = UIColor.separator.cgColor
+    container.layer.borderWidth = 1
     container.layer.cornerRadius = 5
   }
   
@@ -75,7 +75,9 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
     let imageView = UIImageView(image: paperClip)
 
     self.accessoryView = imageView
+    backgroundColor = .clear
     setContainerBorder()
+    
   }
 
   override func awakeFromNib() {

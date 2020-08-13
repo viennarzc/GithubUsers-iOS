@@ -10,8 +10,8 @@ import UIKit
 
 class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
   func setContainerBorder() {
-    container.layer.borderColor = UIColor.systemGray6.cgColor
-    container.layer.borderWidth = 2
+    container.layer.borderColor = UIColor.separator.cgColor
+    container.layer.borderWidth = 1
     container.layer.cornerRadius = 5
   }
   
@@ -69,7 +69,6 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
 
     //we set to default to avoid images being reused in other cells
     avatarView.image = nil
-
   }
 
   func invertColor(of image: UIImage) -> UIImage {
@@ -84,10 +83,9 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
 
   func setupUI() {
     avatarView.layer.cornerRadius = avatarView.frame.width / 2
-    
-    container.layer.borderColor = UIColor.systemGray6.cgColor
-    container.layer.borderWidth = 2
-    container.layer.cornerRadius = 5
+
+    setContainerBorder()
+    backgroundColor = .clear
   }
   
   
