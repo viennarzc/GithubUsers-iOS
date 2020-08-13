@@ -9,10 +9,17 @@
 import UIKit
 
 class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
+  func setContainerBorder() {
+    container.layer.borderColor = UIColor.systemGray6.cgColor
+    container.layer.borderWidth = 2
+    container.layer.cornerRadius = 5
+  }
+  
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var userDetailsLabel: UILabel!
-
+  @IBOutlet weak var container: UIView!
+  
   var imageURL: URL?
 
   var viewModel: UserTableCellViewModel? {
@@ -77,7 +84,13 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
 
   func setupUI() {
     avatarView.layer.cornerRadius = avatarView.frame.width / 2
+    
+    container.layer.borderColor = UIColor.systemGray6.cgColor
+    container.layer.borderWidth = 2
+    container.layer.cornerRadius = 5
   }
+  
+  
 
   override func awakeFromNib() {
     super.awakeFromNib()

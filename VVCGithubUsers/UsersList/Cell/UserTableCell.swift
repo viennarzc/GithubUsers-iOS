@@ -12,6 +12,7 @@ protocol UserTableCell {
   func setupUI()
   func update()
   var viewModel: UserTableCellViewModel? { get set }
+  func setContainerBorder()
 }
 
 protocol Normal: UserTableCell {

@@ -9,10 +9,17 @@
 import UIKit
 
 class UserItemTableViewCell: UITableViewCell, Normal {
+  func setContainerBorder() {
+    container.layer.borderColor = UIColor.systemGray6.cgColor
+    container.layer.borderWidth = 2
+    container.layer.cornerRadius = 5
+  }
+  
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
-
+  @IBOutlet weak var container: UIView!
+  
   var imageURL: URL?
 
   var viewModel: UserTableCellViewModel? {
@@ -71,6 +78,7 @@ class UserItemTableViewCell: UITableViewCell, Normal {
 
   func setupUI() {
     avatarView.layer.cornerRadius = avatarView.frame.width / 2
+    setContainerBorder()
   }
 
 
@@ -94,4 +102,18 @@ extension UITableViewCell {
 
 }
 
+
+extension UIView {
+  /// Add Dropshadow
+  /// - Parameter scale: Set if should do rasterization scale
+  func dropShadow(scale: Bool = true, shadowColor: UIColor = .systemGray5) {
+    layer.masksToBounds = false
+    layer.shadowColor = shadowColor.cgColor
+    layer.shadowOpacity = 0.3
+    layer.shadowOffset = .zero
+    layer.shadowRadius = 10
+    layer.shouldRasterize = true
+    layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+  }
+}
 

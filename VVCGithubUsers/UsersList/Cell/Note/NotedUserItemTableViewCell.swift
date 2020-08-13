@@ -9,9 +9,19 @@
 import UIKit
 
 class NotedUserItemTableViewCell: UITableViewCell, Notable {
+  func setContainerBorder() {
+    container.layer.borderColor = UIColor.systemGray6.cgColor
+    container.layer.borderWidth = 2
+    container.layer.cornerRadius = 5
+  }
+  
 
+  @IBOutlet weak var container: UIView!
   var imageURL: URL?
-
+  @IBOutlet weak var userNameLabel: UILabel!
+  @IBOutlet weak var userDetailsLabel: UILabel!
+  @IBOutlet weak var avatarView: UIImageView!
+  
   func update() {
     guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
     self.imageURL = url
@@ -57,10 +67,6 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
     }
   }
 
-  @IBOutlet weak var avatarView: UIImageView!
-  @IBOutlet weak var userNameLabel: UILabel!
-  @IBOutlet weak var userDetailsLabel: UILabel!
-
   var hasNotes: Bool = true
 
   func setupUI() {
@@ -69,7 +75,7 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
     let imageView = UIImageView(image: paperClip)
 
     self.accessoryView = imageView
-
+    setContainerBorder()
   }
 
   override func awakeFromNib() {
