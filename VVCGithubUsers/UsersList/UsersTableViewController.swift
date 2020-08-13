@@ -9,12 +9,28 @@
 import UIKit
 
 class UsersTableViewController: UITableViewController {
+  
+  var githubUsers: [GitHubUser] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
     NetworkManager.shared.fetchUsers { (users, error) in
+      
+      if let error = error {
+        print(error)
+        return
+      }
+      
+      if let users = users {
+        self.githubUsers = users
+        
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
+
+      }
       
     }
     
@@ -29,7 +45,7 @@ class UsersTableViewController: UITableViewController {
 
 extension UsersTableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return githubUsers.count
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,6 +64,8 @@ extension UsersTableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: UserItemTableViewCell
       = tableView.dequeueReusableCell(withIdentifier: UserItemTableViewCell.reuseIdentifierString, for: indexPath) as! UserItemTableViewCell
+    
+    cell.userNameLabel.text = githubUsers[indexPath.row].login
 
     return cell
   }

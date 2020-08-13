@@ -12,13 +12,12 @@ final class NetworkManager {
   static let shared = NetworkManager()
 
   private let session = URLSession(configuration: .default)
-  private let url = URL(string: "​https://api.github.com/users?since=0")
-  var dataTask: URLSessionDataTask?
+  private let urlString = "https://api.github.com/users"
+  private var dataTask: URLSessionDataTask?
 
   func fetchUsers(since: Int = 0, completion: @escaping ([GitHubUser]?, Error?) -> Void) {
-//    let task = session.
 
-    if var urlComponents = URLComponents(string: "https://api.github.com/users") {
+    if var urlComponents = URLComponents(string: urlString) {
       urlComponents.query = "since=\(since)"
 
       guard let url = urlComponents.url else { return }
