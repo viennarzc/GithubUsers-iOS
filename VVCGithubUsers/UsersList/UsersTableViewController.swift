@@ -10,8 +10,6 @@ import UIKit
 
 class UsersTableViewController: UITableViewController {
   
-//  var githubUsers: [GitHubUser] = []
-  
   var viewModel = UsersTableViewModel()
 
   override func viewDidLoad() {
@@ -61,7 +59,9 @@ extension UsersTableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return viewModel.cellViewModels[indexPath.row].cellInstance(tableView: tableView, indexPath: indexPath)
+    
+    let cell = viewModel.cellViewModels[indexPath.row].cellInstance(tableView: tableView, indexPath: indexPath)
+    return cell
   }
 }
 
