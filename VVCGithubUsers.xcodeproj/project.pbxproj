@@ -28,6 +28,7 @@
 		86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */; };
 		86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5924E5F817008F79D8 /* ProfileViewController.swift */; };
 		86700D5C24E5F927008F79D8 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5B24E5F927008F79D8 /* UserProfile.swift */; };
+		86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		86700D5924E5F817008F79D8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		86700D5B24E5F927008F79D8 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				86700D5324E535DF008F79D8 /* UserListTests.swift */,
+				86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */,
 				86700D4D24E53359008F79D8 /* Info.plist */,
 			);
 			path = VVCGithubUsersTests;
@@ -338,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */,
 				86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

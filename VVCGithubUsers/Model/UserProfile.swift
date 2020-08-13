@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct UserProfile {
+struct UserProfile: Codable {
   let login: String
   let followers: Int
   let following: Int
   let avatarURL: String
   let name: String
-  let company: String
-  let blog: String
+  let company: String?
+  let blog: String?
   
   enum CodingKeys: String, CodingKey {
     case login
