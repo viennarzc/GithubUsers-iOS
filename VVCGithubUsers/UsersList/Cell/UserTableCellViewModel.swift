@@ -10,36 +10,51 @@ import Foundation
 import UIKit
 
 struct UserTableCellViewModel: CellItemable {
-  var cellType: CellType
+  internal var cellType: CellType
 
   let userName: String
   let hasNotes: Bool
   let isInverted: Bool = false
+  let avatarUrl: String
 
   init(user: GitHubUser, index: Int) {
     self.userName = user.login
     self.hasNotes = user.hasNotes
+    self.avatarUrl = user.avatarURL
+    
+    let i = index + 1
 
     cellType = .normal
 
     if user.hasNotes {
       cellType = .note
-    } else if index.isMultiple(of: 4) {
+    } else if i.isMultiple(of: 4) {
       cellType = .inverted
     }
   }
 
   func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
     switch cellType {
+      
     case .inverted:
-      return tableView.dequeueReusableCell(withIdentifier: UserItemTableViewCell.reuseIdentifierString, for: indexPath)
+      let c = tableView.dequeueReusableCell(withIdentifier: InvertedUserItemTableViewCell.reuseIdentifierString, for: indexPath) as! InvertedUserItemTableViewCell
+      c.viewModel = self
+      return c
+      
     case .normal:
-      return tableView.dequeueReusableCell(withIdentifier: UserItemTableViewCell.reuseIdentifierString, for: indexPath)
+      let c = tableView.dequeueReusableCell(withIdentifier: UserItemTableViewCell.reuseIdentifierString, for: indexPath) as! UserItemTableViewCell
+      c.viewModel = self
+      return c
+      
     case .note:
-      return tableView.dequeueReusableCell(withIdentifier: NotedUserItemTableViewCell.reuseIdentifierString, for: indexPath)
+      let c = tableView.dequeueReusableCell(withIdentifier: NotedUserItemTableViewCell.reuseIdentifierString, for: indexPath) as! NotedUserItemTableViewCell
+      c.viewModel = self
+      return c
     }
 
   }
+
+
 
 
 }

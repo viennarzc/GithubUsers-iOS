@@ -22,6 +22,8 @@
 		86700CF924E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700CF724E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib */; };
 		86700CFC24E4CCA0008F79D8 /* UsersTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFB24E4CCA0008F79D8 /* UsersTableViewModel.swift */; };
 		86700CFE24E4DD34008F79D8 /* UserTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFD24E4DD34008F79D8 /* UserTableCellViewModel.swift */; };
+		86700D0124E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */; };
+		86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		86700CF724E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotedUserItemTableViewCell.xib; sourceTree = "<group>"; };
 		86700CFB24E4CCA0008F79D8 /* UsersTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewModel.swift; sourceTree = "<group>"; };
 		86700CFD24E4DD34008F79D8 /* UserTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableCellViewModel.swift; sourceTree = "<group>"; };
+		86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedUserItemTableViewCell.swift; sourceTree = "<group>"; };
+		86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvertedUserItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +122,38 @@
 			children = (
 				86700CF424E4C78C008F79D8 /* UserTableCell.swift */,
 				86700CFD24E4DD34008F79D8 /* UserTableCellViewModel.swift */,
-				86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */,
-				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
+				86700D0624E5122A008F79D8 /* Normal */,
+				86700D0324E51215008F79D8 /* Note */,
+				86700D0524E51223008F79D8 /* Inverted */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		86700D0324E51215008F79D8 /* Note */ = {
+			isa = PBXGroup;
+			children = (
 				86700CF624E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift */,
 				86700CF724E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib */,
 			);
-			path = Cell;
+			path = Note;
+			sourceTree = "<group>";
+		};
+		86700D0524E51223008F79D8 /* Inverted */ = {
+			isa = PBXGroup;
+			children = (
+				86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */,
+				86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */,
+			);
+			path = Inverted;
+			sourceTree = "<group>";
+		};
+		86700D0624E5122A008F79D8 /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */,
+				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
+			);
+			path = Normal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +216,7 @@
 			files = (
 				8664278124E3E41C00835CA6 /* LaunchScreen.storyboard in Resources */,
 				8664277E24E3E41C00835CA6 /* Assets.xcassets in Resources */,
+				86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */,
 				8664277C24E3E41900835CA6 /* Main.storyboard in Resources */,
 				86700CEC24E424A3008F79D8 /* UserItemTableViewCell.xib in Resources */,
 				86700CF924E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib in Resources */,
@@ -202,6 +233,7 @@
 				86700CFE24E4DD34008F79D8 /* UserTableCellViewModel.swift in Sources */,
 				86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */,
 				86700CFC24E4CCA0008F79D8 /* UsersTableViewModel.swift in Sources */,
+				86700D0124E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift in Sources */,
 				8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */,
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,

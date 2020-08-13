@@ -18,7 +18,7 @@ class UsersTableViewController: UITableViewController {
 
     tableView.register(UserItemTableViewCell.nib, forCellReuseIdentifier: UserItemTableViewCell.reuseIdentifierString)
     tableView.register(NotedUserItemTableViewCell.nib, forCellReuseIdentifier: NotedUserItemTableViewCell.reuseIdentifierString)
-
+    tableView.register(InvertedUserItemTableViewCell.nib, forCellReuseIdentifier: InvertedUserItemTableViewCell.reuseIdentifierString)
 
   }
 

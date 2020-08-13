@@ -13,10 +13,33 @@ class UserItemTableViewCell: UITableViewCell, Normal {
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
   
+  var imageURL: URL?
+  
+  var viewModel: UserTableCellViewModel? {
+    didSet {
+      update()
+    }
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     
     setupUI()
+  }
+  
+  func update() {
+    guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
+    NetworkManager.shared.loadImages(with: url) { (image, error) in
+      if error != nil {
+        return
+      }
+      
+      self.avatarView.image = image
+    }
+    
+    
+    userNameLabel.text = vm.userName.capitalized
+    userDetailsLabel.text = "details"
   }
 
   func setupUI() {

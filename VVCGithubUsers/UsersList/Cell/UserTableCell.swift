@@ -10,7 +10,8 @@ import Foundation
 
 protocol UserTableCell {
   func setupUI()
-  
+  func update()
+  var viewModel: UserTableCellViewModel? { get set }
 }
 
 protocol Normal: UserTableCell {
