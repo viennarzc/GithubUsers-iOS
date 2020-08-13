@@ -19,7 +19,7 @@ class UsersTableViewController: UITableViewController {
     tableView.register(UserItemTableViewCell.nib, forCellReuseIdentifier: UserItemTableViewCell.reuseIdentifierString)
     tableView.register(NotedUserItemTableViewCell.nib, forCellReuseIdentifier: NotedUserItemTableViewCell.reuseIdentifierString)
     tableView.register(InvertedUserItemTableViewCell.nib, forCellReuseIdentifier: InvertedUserItemTableViewCell.reuseIdentifierString)
-    
+
     tableView.separatorStyle = .none
 
   }
@@ -81,10 +81,29 @@ extension UsersTableViewController {
 
       }
     }
+
+    showLoadingIndicator(in: tableView, indexPath: indexPath)
+
+  }
+
+  func showLoadingIndicator(in tableView: UITableView, indexPath: IndexPath) {
+
+    let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
+    if indexPath.row == lastRowIndex {
+
+      let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+      spinner.startAnimating()
+      spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+
+      tableView.tableFooterView = spinner
+      tableView.tableFooterView?.isHidden = false
+
+    }
   }
 
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
