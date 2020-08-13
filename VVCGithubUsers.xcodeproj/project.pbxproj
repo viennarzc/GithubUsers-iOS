@@ -17,6 +17,7 @@
 		86700CEC24E424A3008F79D8 /* UserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */; };
 		86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CEF24E42793008F79D8 /* NetworkManager.swift */; };
 		86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CF224E4343A008F79D8 /* GitHubUser.swift */; };
+		86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CF424E4C78C008F79D8 /* UserTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserItemTableViewCell.xib; sourceTree = "<group>"; };
 		86700CEF24E42793008F79D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		86700CF224E4343A008F79D8 /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
+		86700CF424E4C78C008F79D8 /* UserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				8664277824E3E41900835CA6 /* UsersTableViewController.swift */,
 				8664278824E3E95E00835CA6 /* UserItemTableViewCell.swift */,
 				86700CEB24E424A3008F79D8 /* UserItemTableViewCell.xib */,
+				86700CF424E4C78C008F79D8 /* UserTableCell.swift */,
 			);
 			path = UsersList;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */,
 				8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */,
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,
