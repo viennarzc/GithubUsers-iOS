@@ -24,7 +24,6 @@
 		86700CFE24E4DD34008F79D8 /* UserTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFD24E4DD34008F79D8 /* UserTableCellViewModel.swift */; };
 		86700D0124E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */; };
 		86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */; };
-		86700D4C24E53359008F79D8 /* VVCGithubUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D4B24E53359008F79D8 /* VVCGithubUsersTests.swift */; };
 		86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5324E535DF008F79D8 /* UserListTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		86700CFF24E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedUserItemTableViewCell.swift; sourceTree = "<group>"; };
 		86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvertedUserItemTableViewCell.xib; sourceTree = "<group>"; };
 		86700D4924E53358008F79D8 /* VVCGithubUsersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVCGithubUsersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		86700D4B24E53359008F79D8 /* VVCGithubUsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVCGithubUsersTests.swift; sourceTree = "<group>"; };
 		86700D4D24E53359008F79D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86700D5324E535DF008F79D8 /* UserListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,7 +182,6 @@
 		86700D4A24E53359008F79D8 /* VVCGithubUsersTests */ = {
 			isa = PBXGroup;
 			children = (
-				86700D4B24E53359008F79D8 /* VVCGithubUsersTests.swift */,
 				86700D5324E535DF008F79D8 /* UserListTests.swift */,
 				86700D4D24E53359008F79D8 /* Info.plist */,
 			);
@@ -314,7 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */,
-				86700D4C24E53359008F79D8 /* VVCGithubUsersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
