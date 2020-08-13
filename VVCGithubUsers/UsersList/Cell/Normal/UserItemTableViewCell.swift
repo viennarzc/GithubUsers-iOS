@@ -46,6 +46,14 @@ class UserItemTableViewCell: UITableViewCell, Normal {
     avatarView.layer.cornerRadius = avatarView.frame.width / 2
   }
   
+  override func prepareForReuse() {
+    super.prepareForReuse()
+
+    //we set to default to avoid images being reused in other cells
+    avatarView.image = UIImage(systemName: "person.circle")
+    
+  }
+  
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
 

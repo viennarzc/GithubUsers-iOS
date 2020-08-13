@@ -39,6 +39,14 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
     userDetailsLabel.text = "Inverted"
   }
   
+  override func prepareForReuse() {
+     super.prepareForReuse()
+
+     //we set to default to avoid images being reused in other cells
+     avatarView.image = UIImage(systemName: "person.circle.fill")
+     
+   }
+  
   func invertColor(of image: UIImage) -> UIImage {
     if let image = CIImage(image: image), let filter = CIFilter(name: "CIColorInvert") {
       filter.setValue(image, forKey: kCIInputImageKey)

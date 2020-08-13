@@ -24,6 +24,14 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
     userNameLabel.text = vm.userName.capitalized
     userDetailsLabel.text = "details"
   }
+  
+  override func prepareForReuse() {
+     super.prepareForReuse()
+
+     //we set to default to avoid images being reused in other cells
+     avatarView.image = UIImage(systemName: "person.circle")
+     
+   }
 
   var viewModel: UserTableCellViewModel? {
     didSet {

@@ -57,8 +57,9 @@ final class NetworkManager {
 
           do {
             let users = try decoder.decode([GitHubUser].self, from: data)
-
+            
             completion(.success(users))
+            
           } catch {
             completion(.failure(error))
           }
