@@ -26,6 +26,10 @@
 		86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */; };
 		86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5324E535DF008F79D8 /* UserListTests.swift */; };
 		86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */; };
+		86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5924E5F817008F79D8 /* ProfileViewController.swift */; };
+		86700D5C24E5F927008F79D8 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5B24E5F927008F79D8 /* UserProfile.swift */; };
+		86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */; };
+		86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		86700D4D24E53359008F79D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86700D5324E535DF008F79D8 /* UserListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTests.swift; sourceTree = "<group>"; };
 		86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
+		86700D5924E5F817008F79D8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		86700D5B24E5F927008F79D8 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
+		86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 				86700CF124E4312A008F79D8 /* Model */,
 				86700CEE24E42785008F79D8 /* Networking */,
 				86700CED24E425A0008F79D8 /* UsersList */,
+				86700D5824E5F7F7008F79D8 /* Profile */,
 				8664277A24E3E41900835CA6 /* Main.storyboard */,
 				8664277D24E3E41C00835CA6 /* Assets.xcassets */,
 				8664277F24E3E41C00835CA6 /* LaunchScreen.storyboard */,
@@ -139,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				86700CF224E4343A008F79D8 /* GitHubUser.swift */,
+				86700D5B24E5F927008F79D8 /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				86700D5324E535DF008F79D8 /* UserListTests.swift */,
+				86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */,
 				86700D4D24E53359008F79D8 /* Info.plist */,
 			);
 			path = VVCGithubUsersTests;
@@ -197,6 +208,15 @@
 				86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		86700D5824E5F7F7008F79D8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				86700D5924E5F817008F79D8 /* ProfileViewController.swift */,
+				86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,14 +325,17 @@
 			files = (
 				86700CFE24E4DD34008F79D8 /* UserTableCellViewModel.swift in Sources */,
 				86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */,
+				86700D5C24E5F927008F79D8 /* UserProfile.swift in Sources */,
 				86700CFC24E4CCA0008F79D8 /* UsersTableViewModel.swift in Sources */,
 				86700D0124E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift in Sources */,
 				8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */,
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,
 				86700CF824E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift in Sources */,
+				86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */,
 				86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
+				86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */,
 				8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */,
 				86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */,
 			);
@@ -322,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */,
 				86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

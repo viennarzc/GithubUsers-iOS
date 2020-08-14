@@ -20,7 +20,7 @@ final class NetworkManager {
   static let shared = NetworkManager()
 
   private let session: URLSession?
-  private let urlString = "https://api.github.com/users"
+  private let baseUrlString = "https://api.github.com"
   private var dataTask: URLSessionDataTask?
   
   init() {
@@ -32,7 +32,8 @@ final class NetworkManager {
 
   func fetchUsers(since: Int = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
-    if var urlComponents = URLComponents(string: urlString) {
+    if var urlComponents = URLComponents(string: baseUrlString) {
+      urlComponents.path = "/users"
       urlComponents.query = "since=\(since)"
 
       guard let url = urlComponents.url else { return }
@@ -72,7 +73,50 @@ final class NetworkManager {
 
     dataTask?.resume()
 
+  }
+  
+  func fetchUser(with loginName: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
+    
+    if var urlComponents = URLComponents(string: baseUrlString) {
+      urlComponents.path = "/users/\(loginName)"
 
+      guard let url = urlComponents.url else { return }
+
+      dataTask = session?.dataTask(with: url) { [weak self] data, response, error in
+        defer {
+          self?.dataTask = nil
+        }
+
+        if let error = error {
+          completion(.failure(error))
+          return
+        }
+
+        //Decode
+
+        if let data = data,
+          let response = response as? HTTPURLResponse,
+          response.statusCode == 200 {
+
+          let decoder = JSONDecoder()
+
+          do {
+            let user = try decoder.decode(UserProfile.self, from: data)
+            
+            completion(.success(user))
+            
+          } catch {
+            completion(.failure(error))
+          }
+
+
+        }
+
+      }
+    }
+
+    dataTask?.resume()
+    
   }
 
   func loadImages(with url: URL, completion: @escaping (UIImage?, Error?) -> Void) {
@@ -87,8 +131,6 @@ final class NetworkManager {
 
         if let unwrappedData = data, let image = UIImage(data: unwrappedData) {
           completion(image, nil)
-
-//          imageCache.setObject(imageToCache, forKey: url as AnyObject)
         }
 
       })
