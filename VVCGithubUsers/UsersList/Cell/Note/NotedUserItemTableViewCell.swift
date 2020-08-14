@@ -10,13 +10,6 @@ import UIKit
 
 class NotedUserItemTableViewCell: UITableViewCell, Notable {
   
-  func setContainerBorder() {
-    container.layer.borderColor = UIColor.separator.cgColor
-    container.layer.borderWidth = 1
-    container.layer.cornerRadius = 5
-  }
-  
-
   @IBOutlet weak var container: UIView!
   var imageURL: URL?
   @IBOutlet weak var userNameLabel: UILabel!
@@ -24,43 +17,17 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var notesIndicator: UIImageView!
   
-  func update() {
-    guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
-    self.imageURL = url
-
-    // retrieves image if already available in cache
-    if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
-      self.avatarView.image = imageFromCache
-      return
-    }
-
-    //load image
-    NetworkManager.shared.loadImages(with: url) { (image, error) in
-      if error != nil {
-        return
-      }
-
-      DispatchQueue.main.async(execute: {
-
-        if let image = image {
-          imageCache.setObject(image, forKey: url as AnyObject)
-        }
-
-        if self.imageURL == url {
-          self.avatarView.image = image
-        }
-
-      })
-
-    }
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+    setupUI()
   }
-
+  
   override func prepareForReuse() {
     super.prepareForReuse()
 
     //we set to default to avoid images being reused in other cells
     avatarView.image = UIImage(systemName: "person.circle")
-
   }
 
   var viewModel: UserTableCellViewModel? {
@@ -68,8 +35,47 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
       update()
     }
   }
-
-  var hasNotes: Bool = true
+  
+  func setContainerBorder() {
+    container.layer.borderColor = UIColor.separator.cgColor
+    container.layer.borderWidth = 1
+    container.layer.cornerRadius = 5
+  }
+  
+  func update() {
+    guard let vm = viewModel,
+      let url = URL(string: vm.avatarUrl) else { return }
+    self.imageURL = url
+    
+    // retrieves image if already available in cache
+    if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
+      self.avatarView.image = imageFromCache
+      return
+    }
+    
+    //load image
+    NetworkManager.shared.loadImages(with: url) { (image, error) in
+      if error != nil {
+        return
+      }
+      
+      DispatchQueue.main.async(execute: {
+        
+        if let image = image {
+          imageCache.setObject(image, forKey: url as AnyObject)
+        }
+        
+        if self.imageURL == url {
+          self.avatarView.image = image
+        }
+        
+      })
+      
+    }
+    
+    userNameLabel.text = vm.userName.capitalized
+    userDetailsLabel.text = vm.details
+  }
 
   func setupUI() {
     let paperClip = UIImage.init(systemName: "rectangle.and.paperclip")
@@ -80,12 +86,6 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
     
     setContainerBorder()
     
-  }
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
-    setupUI()
   }
 
 

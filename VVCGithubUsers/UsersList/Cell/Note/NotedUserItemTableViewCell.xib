@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Us-6n-Cd1">
-                        <rect key="frame" x="5" y="10" width="310" height="50"/>
+                        <rect key="frame" x="5" y="5" width="310" height="60"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-0Y-7yY">
-                                <rect key="frame" x="5" y="0.0" width="300" height="50"/>
+                                <rect key="frame" x="5" y="5" width="300" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6W4-CJ-Du7">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -72,12 +72,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="6Us-6n-Cd1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="5Yo-nh-NUz"/>
-                    <constraint firstItem="6Us-6n-Cd1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="DmF-kh-tj6"/>
-                    <constraint firstAttribute="bottom" secondItem="6Us-6n-Cd1" secondAttribute="bottom" constant="10" id="Hbx-P4-JLD"/>
+                    <constraint firstItem="6Us-6n-Cd1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="DmF-kh-tj6"/>
+                    <constraint firstAttribute="bottom" secondItem="6Us-6n-Cd1" secondAttribute="bottom" constant="5" id="Hbx-P4-JLD"/>
                     <constraint firstItem="6Us-6n-Cd1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Wuf-Lp-kl7"/>
                     <constraint firstAttribute="trailing" secondItem="6Us-6n-Cd1" secondAttribute="trailing" constant="5" id="XL2-7B-BO0"/>
-                    <constraint firstAttribute="bottom" secondItem="6Us-6n-Cd1" secondAttribute="bottom" constant="10" id="qus-m1-2xJ"/>
-                    <constraint firstItem="6Us-6n-Cd1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rdH-Bi-guX"/>
+                    <constraint firstAttribute="bottom" secondItem="6Us-6n-Cd1" secondAttribute="bottom" constant="5" id="qus-m1-2xJ"/>
+                    <constraint firstItem="6Us-6n-Cd1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="rdH-Bi-guX"/>
                     <constraint firstAttribute="trailing" secondItem="6Us-6n-Cd1" secondAttribute="trailing" constant="5" id="wF7-nR-dNi"/>
                 </constraints>
             </tableViewCellContentView>

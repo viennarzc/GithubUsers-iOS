@@ -11,20 +11,20 @@ import UIKit
 
 struct UserTableCellViewModel: CellItemable {
   var id: Int16
-  
+
   var userName: String
+  var details: String
   
   internal var cellType: CellType
   
-  let hasNotes: Bool
-  let isInverted: Bool = false
   let avatarUrl: String
 
   init(user: GitHubUser, index: Int) {
     self.userName = user.login
-    self.hasNotes = user.hasNotes
     self.avatarUrl = user.avatarURL
     self.id = user.id
+    self.details = user.type.capitalized
+    
     
     let i = index + 1
 

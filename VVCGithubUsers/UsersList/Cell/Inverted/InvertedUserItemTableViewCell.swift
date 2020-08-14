@@ -9,11 +9,6 @@
 import UIKit
 
 class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
-  func setContainerBorder() {
-    container.layer.borderColor = UIColor.separator.cgColor
-    container.layer.borderWidth = 1
-    container.layer.cornerRadius = 5
-  }
   
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userNameLabel: UILabel!
@@ -29,7 +24,32 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
   }
 
   var isInverted: Bool = true
+  
+  //MARK: - Life Cycle
 
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+    setupUI()
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    //we set to default to avoid images being reused in other cells
+    avatarView.image = nil
+  }
+  
+  //MARK: - Custom Methods
+
+  func setContainerBorder() {
+    container.layer.borderColor = UIColor.separator.cgColor
+    container.layer.borderWidth = 1
+    container.layer.cornerRadius = 5
+  }
+  
+  
   func update() {
 
     guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
@@ -61,14 +81,7 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
     }
 
     userNameLabel.text = vm.userName.capitalized
-    userDetailsLabel.text = "Inverted"
-  }
-
-  override func prepareForReuse() {
-    super.prepareForReuse()
-
-    //we set to default to avoid images being reused in other cells
-    avatarView.image = nil
+    userDetailsLabel.text = vm.details
   }
 
   func invertColor(of image: UIImage) -> UIImage {
@@ -88,13 +101,6 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
     backgroundColor = .clear
   }
   
-  
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
-    setupUI()
-  }
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)

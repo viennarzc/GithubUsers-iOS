@@ -15,12 +15,6 @@ class UserItemTableViewCell: UITableViewCell, Normal {
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var container: UIView!
   
-  func setContainerBorder() {
-    container.layer.borderColor = UIColor.separator.cgColor
-    container.layer.borderWidth = 1
-    container.layer.cornerRadius = 5
-  }
-  
   var imageURL: URL?
 
   var viewModel: UserTableCellViewModel? {
@@ -34,7 +28,23 @@ class UserItemTableViewCell: UITableViewCell, Normal {
 
     setupUI()
   }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
 
+    //we set to default to avoid images being reused in other cells
+    avatarView.image = nil
+
+  }
+  
+  //MARK: - Methods
+
+  func setContainerBorder() {
+    container.layer.borderColor = UIColor.separator.cgColor
+    container.layer.borderWidth = 1
+    container.layer.cornerRadius = 5
+  }
+  
   func update() {
     guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
     self.imageURL = url
@@ -66,16 +76,9 @@ class UserItemTableViewCell: UITableViewCell, Normal {
     }
 
     userNameLabel.text = vm.userName.capitalized
-    userDetailsLabel.text = "details"
+    userDetailsLabel.text = vm.details
   }
 
-  override func prepareForReuse() {
-    super.prepareForReuse()
-
-    //we set to default to avoid images being reused in other cells
-    avatarView.image = nil
-
-  }
 
   func setupUI() {
     avatarView.layer.cornerRadius = avatarView.frame.width / 2

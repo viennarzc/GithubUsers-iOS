@@ -108,6 +108,7 @@ class UsersTableViewModel {
 protocol CellItemable {
   var userName: String { get set }
   var id: Int16 { get set }
+  var details: String { get set }
 
   func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
   var cellType: CellType { get set }
