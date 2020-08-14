@@ -17,6 +17,12 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var notesIndicator: UIImageView!
   
+  var viewModel: UserTableCellViewModel? {
+    didSet {
+      update()
+    }
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -30,12 +36,6 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
     avatarView.image = UIImage(systemName: "person.circle")
   }
 
-  var viewModel: UserTableCellViewModel? {
-    didSet {
-      update()
-    }
-  }
-  
   func setContainerBorder() {
     container.layer.borderColor = UIColor.separator.cgColor
     container.layer.borderWidth = 1
@@ -45,6 +45,7 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
   func update() {
     guard let vm = viewModel,
       let url = URL(string: vm.avatarUrl) else { return }
+    
     self.imageURL = url
     
     // retrieves image if already available in cache

@@ -52,7 +52,9 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
   
   func update() {
 
-    guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
+    guard let vm = viewModel,
+      let url = URL(string: vm.avatarUrl) else { return }
+    
     self.imageURL = url
 
     // retrieves image if already available in cache
