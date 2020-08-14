@@ -79,8 +79,8 @@ final class NetworkManager {
 
             let users = try decoder.decode([GitHubUser].self, from: data)
 
+            //Save
             try managedObjectContext!.save()
-
 
             completion(.success(users))
 

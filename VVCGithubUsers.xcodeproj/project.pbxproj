@@ -31,6 +31,7 @@
 		86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */; };
 		86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */; };
 		86700D6324E626A9008F79D8 /* VVCGithubUsers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86700D6124E626A9008F79D8 /* VVCGithubUsers.xcdatamodeld */; };
+		86700D6524E66754008F79D8 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 86700D6424E66754008F79D8 /* users.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		86700D6224E626A9008F79D8 /* VVCGithubUsers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VVCGithubUsers.xcdatamodel; sourceTree = "<group>"; };
+		86700D6424E66754008F79D8 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = users.json; path = VVCGithubUsers/users.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		8664277324E3E41900835CA6 /* VVCGithubUsers */ = {
 			isa = PBXGroup;
 			children = (
+				86700D6424E66754008F79D8 /* users.json */,
 				86700D5524E58178008F79D8 /* Extensions */,
 				8664277424E3E41900835CA6 /* AppDelegate.swift */,
 				8664277624E3E41900835CA6 /* SceneDelegate.swift */,
@@ -307,6 +310,7 @@
 				8664277E24E3E41C00835CA6 /* Assets.xcassets in Resources */,
 				86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */,
 				8664277C24E3E41900835CA6 /* Main.storyboard in Resources */,
+				86700D6524E66754008F79D8 /* users.json in Resources */,
 				86700CEC24E424A3008F79D8 /* UserItemTableViewCell.xib in Resources */,
 				86700CF924E4C9CE008F79D8 /* NotedUserItemTableViewCell.xib in Resources */,
 			);
