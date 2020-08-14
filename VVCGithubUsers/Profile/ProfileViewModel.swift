@@ -24,8 +24,8 @@ class ProfileViewModel {
   }
 
   func fetchUserProfile(completion: @escaping (Error?) -> Void) {
-    if let users = fetchFromStorage(), (users.first(where: { $0.id == self.userProfile?.id }) != nil) {
-      self.userProfile = users.first(where: { $0.id == self.userProfile?.id })
+    if let users = fetchFromStorage(), (users.first(where: { $0.id == id }) != nil) {
+      self.userProfile = users.first(where: { $0.id == id })
       completion(nil)
       return
     }
@@ -45,7 +45,7 @@ class ProfileViewModel {
 
     let managedObjectContext = self.persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<UserProfile>(entityName: "UserProfile")
-    fetchRequest.predicate =  NSPredicate(format: "id = %@", "\(String(describing: self.id))")
+    fetchRequest.predicate = NSPredicate(format: "id = %@", "\(String(describing: self.id))")
 
     do {
       let user = try managedObjectContext.fetch(fetchRequest)
@@ -55,4 +55,58 @@ class ProfileViewModel {
       return nil
     }
   }
+
+  func save(notes: String, completion: @escaping (Error?) -> Void) {
+    let managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
+
+    let fetchRequest = NSFetchRequest<UserProfile>(entityName: "UserProfile")
+    fetchRequest.predicate = NSPredicate(format: "id = %@", "\(id)")
+
+    do {
+      let results = try managedObjectContext.fetch(fetchRequest)
+      if results.isEmpty {
+        completion(MyError.first(message: "Empty results"))
+        return
+      }
+
+      let managedObject = results[0]
+      managedObject.setValue(notes, forKey: "notes")
+
+      try managedObjectContext.save()
+      
+      completion(nil)
+
+    } catch let error {
+      print(error)
+      completion(error)
+    }
+
+  }
+  
+  func updateUserHasNotes(completion: @escaping (Error?) -> Void) {
+    let managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
+
+    let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
+    fetchRequest.predicate = NSPredicate(format: "id = %@", "\(id)")
+
+    do {
+      let results = try managedObjectContext.fetch(fetchRequest)
+      if results.isEmpty {
+        completion(MyError.first(message: "Empty results"))
+        return
+      }
+
+      let managedObject = results[0]
+      managedObject.setValue(true, forKey: "hasNotes")
+
+      try managedObjectContext.save()
+      
+      completion(nil)
+
+    } catch let error {
+      print(error)
+      completion(error)
+    }
+  }
+  
 }

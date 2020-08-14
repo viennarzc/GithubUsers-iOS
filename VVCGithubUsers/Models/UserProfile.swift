@@ -18,6 +18,7 @@ class UserProfile: NSManagedObject, Codable {
   @NSManaged var name: String
   @NSManaged var company: String?
   @NSManaged var blog: String?
+  @NSManaged var notes: String?
 
   enum CodingKeys: String, CodingKey {
     case login
@@ -28,6 +29,7 @@ class UserProfile: NSManagedObject, Codable {
     case name
     case company
     case blog
+    case notes
   }
 
   // MARK: - Decodable
@@ -49,6 +51,7 @@ class UserProfile: NSManagedObject, Codable {
     self.name = try container.decode(String.self, forKey: .name)
     self.company = try container.decodeIfPresent(String.self, forKey: .company)
     self.blog = try container.decodeIfPresent(String.self, forKey: .blog)
+    self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
 
   }
 
@@ -63,6 +66,7 @@ class UserProfile: NSManagedObject, Codable {
     try container.encode(name, forKey: .name)
     try container.encode(company, forKey: .company)
     try container.encode(blog, forKey: .blog)
+    try container.encode(blog, forKey: .notes)
   }
 
 }

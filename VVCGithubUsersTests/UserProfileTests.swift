@@ -85,5 +85,24 @@ class UserProfileTests: XCTestCase {
     
     XCTAssertNoThrow(try decoder.decode(UserProfile.self, from: jsonData))
   }
+  
+  func testSaveNotes() {
+    let notes = "Ryu ga waga teki wo kurau!"
+    
+    let p = ProfileViewModel(userName: "mojombo", id: 1)
+    
+    p.save(notes: notes) { (error) in
+      XCTAssert(error == nil)
+    }
+  }
+  
+  func testCanUpdateUserHasNotes() {
+    
+    let p = ProfileViewModel(userName: "mojombo", id: 1)
+    
+    p.updateUserHasNotes { (error) in
+      XCTAssert(error == nil)
+    }
+  }
 
 }

@@ -30,8 +30,6 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    textView.text = "Add Notes..."
-    textView.textColor = .systemGray
     textView.delegate = self
 
   }
@@ -84,18 +82,60 @@ class ProfileViewController: UIViewController {
       companyLabel.text = "company: \(userProfile.company ?? "None")"
       blogLabel.text = "blog: \(userProfile.blog ?? "None")"
       navigationItem.title = userProfile.name
+      textView.text = userProfile.notes
     }
-
-    //navigation title
-
-
   }
+  
+  @IBAction func didTapSaveNotes(_ sender: Any) {
+    guard let vm = viewModel, let text = textView.text else { return }
+    
+    vm.save(notes: text) { (error) in
+      if let error = error {
+        print(error)
+        
+        return
+      }
+      
+      self.presentNotesSavedAlert()
+    }
+    
+    vm.updateUserHasNotes { (error) in
+      if let error = error {
+        print(error)
+      }
+    }
+  }
+  
+  /// Presents Purchase alert
+  private func presentNotesSavedAlert() {
+
+    let alertVC = UIAlertController(
+      title: nil,
+      message: "Notes saved!",
+      preferredStyle: .alert)
+
+    let dismissAction = UIAlertAction(title: "Awesome!", style: .default) { (_) in
+      alertVC.dismiss(animated: true, completion: nil)
+    }
+    alertVC.addAction(dismissAction)
+
+    present(alertVC, animated: true, completion: nil)
+  }
+
+  
 }
 
 extension ProfileViewController: UITextViewDelegate {
   func textViewDidBeginEditing(_ textView: UITextView) {
-    textView.text = nil
+  
     textView.textColor = .label
   }
+}
+
+enum MyError: Error {
+    case first(message: String)
+    case second(message: String)
+
+    var localizedDescription: String { return "Error" }
 }
 
