@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 
 struct UserTableCellViewModel: CellItemable {
+  var userName: String
+  
   internal var cellType: CellType
-
-  let userName: String
+  
   let hasNotes: Bool
   let isInverted: Bool = false
   let avatarUrl: String

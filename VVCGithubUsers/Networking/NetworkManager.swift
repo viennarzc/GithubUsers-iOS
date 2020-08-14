@@ -20,7 +20,7 @@ final class NetworkManager {
   static let shared = NetworkManager()
 
   private let session: URLSession?
-  private let usersUrlString = "https://api.github.com/users"
+  private let baseUrlString = "https://api.github.com"
   private var dataTask: URLSessionDataTask?
   
   init() {
@@ -32,7 +32,8 @@ final class NetworkManager {
 
   func fetchUsers(since: Int = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
-    if var urlComponents = URLComponents(string: usersUrlString) {
+    if var urlComponents = URLComponents(string: baseUrlString) {
+      urlComponents.path = "/users"
       urlComponents.query = "since=\(since)"
 
       guard let url = urlComponents.url else { return }
@@ -76,8 +77,8 @@ final class NetworkManager {
   
   func fetchUser(with loginName: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
     
-    if var urlComponents = URLComponents(string: usersUrlString) {
-      urlComponents.path = loginName
+    if var urlComponents = URLComponents(string: baseUrlString) {
+      urlComponents.path = "/users/\(loginName)"
 
       guard let url = urlComponents.url else { return }
 
