@@ -182,6 +182,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="didTapSaveNotes:" destination="d9H-YS-EsW" eventType="touchUpInside" id="i2M-nM-H6f"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
