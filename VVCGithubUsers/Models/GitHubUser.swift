@@ -9,12 +9,12 @@
 import Foundation
 import CoreData
 
-class GitHubUser: Codable {
-   var login: String
-   var id: Int
-  var avatarURL: String
-   var type: String
-   var siteAdmin: Bool
+class GitHubUser: NSManagedObject, Codable {
+  @NSManaged var login: String
+  @NSManaged var id: Int16
+  @NSManaged var avatarURL: String
+  @NSManaged var type: String
+  @NSManaged var siteAdmin: Bool
 
 
   var hasNotes: Bool {
@@ -34,32 +34,32 @@ class GitHubUser: Codable {
   }
 
   // MARK: - Decodable
-//  required convenience init(from decoder: Decoder) throws {
-//    guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,
-//      let managedObjectContext = decoder.userInfo[codingUserInfoKeyManagedObjectContext] as? NSManagedObjectContext,
-//      let entity = NSEntityDescription.entity(forEntityName: "GitHubUser", in: managedObjectContext) else {
-//        fatalError("Failed to decode GitHubUser")
-//    }
-//
-//    self.init(entity: entity, insertInto: managedObjectContext)
-//
-//    let container = try decoder.container(keyedBy: CodingKeys.self)
-//    self.login = try container.decode(String.self, forKey: .login)
-//    self.id = try container.decode(Int.self, forKey: .id)
-//    self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
-//    self.type = try container.decode(String.self, forKey: .type)
-//    self.siteAdmin = try container.decode(Bool.self, forKey: .siteAdmin)
-//  }
-//
-//  // MARK: - Encodable
-//  public func encode(to encoder: Encoder) throws {
-//    var container = encoder.container(keyedBy: CodingKeys.self)
-//    try container.encode(login, forKey: .login)
-//    try container.encode(id, forKey: .id)
-//    try container.encode(avatarURL, forKey: .avatarURL)
-//    try container.encode(type, forKey: .type)
-//    try container.encode(siteAdmin, forKey: .siteAdmin)
-//  }
+  required convenience init(from decoder: Decoder) throws {
+    guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,
+      let managedObjectContext = decoder.userInfo[codingUserInfoKeyManagedObjectContext] as? NSManagedObjectContext,
+      let entity = NSEntityDescription.entity(forEntityName: "GitHubUser", in: managedObjectContext) else {
+        fatalError("Failed to decode GitHubUser")
+    }
+
+    self.init(entity: entity, insertInto: managedObjectContext)
+
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self.login = try container.decode(String.self, forKey: .login)
+    self.id = try container.decode(Int16.self, forKey: .id)
+    self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
+    self.type = try container.decode(String.self, forKey: .type)
+    self.siteAdmin = try container.decode(Bool.self, forKey: .siteAdmin)
+  }
+
+  // MARK: - Encodable
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(login, forKey: .login)
+    try container.encode(id, forKey: .id)
+    try container.encode(avatarURL, forKey: .avatarURL)
+    try container.encode(type, forKey: .type)
+    try container.encode(siteAdmin, forKey: .siteAdmin)
+  }
 
 }
 

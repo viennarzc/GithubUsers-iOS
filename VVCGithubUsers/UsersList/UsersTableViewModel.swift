@@ -12,7 +12,7 @@ import UIKit
 class UsersTableViewModel {
   var cellViewModels: [CellItemable] = []
 
-  private var lastUserID: Int = 0
+  private var lastUserID: Int16 = 0
   private(set) var selectedUser: CellItemable?
   
   private(set) var profileViewModel: ProfileViewModel?
@@ -76,7 +76,7 @@ class UsersTableViewModel {
 
 protocol CellItemable {
   var userName: String { get set }
-  var id: Int { get set }
+  var id: Int16 { get set }
   
   func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
   var cellType: CellType { get set }

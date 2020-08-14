@@ -42,7 +42,7 @@ final class NetworkManager {
     session = URLSession(configuration: config)
   }
 
-  func fetchUsers(since: Int = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
+  func fetchUsers(since: Int16 = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
     if var urlComponents = URLComponents(string: baseUrlString) {
       urlComponents.path = "/users"
@@ -66,10 +66,21 @@ final class NetworkManager {
           let response = response as? HTTPURLResponse,
           response.statusCode == 200 {
 
-          let decoder = JSONDecoder()
-
           do {
+            //Decode
+
+            guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
+              fatalError("Failed to retrieve managed object context")
+            }
+
+            let managedObjectContext = self?.persistentContainer.viewContext
+            let decoder = JSONDecoder()
+            decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
+
             let users = try decoder.decode([GitHubUser].self, from: data)
+
+            try managedObjectContext!.save()
+
 
             completion(.success(users))
 

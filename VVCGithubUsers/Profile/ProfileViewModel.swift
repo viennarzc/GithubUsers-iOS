@@ -11,14 +11,14 @@ import CoreData
 
 class ProfileViewModel {
   private let userName: String
-  private let id: Int
+  private let id: Int16
 
   private(set) var userProfile: UserProfile?
 
   private let persistentContainer: NSPersistentContainer = NetworkManager.shared.persistentContainer
 
 
-  init(userName: String, id: Int) {
+  init(userName: String, id: Int16) {
     self.userName = userName
     self.id = id
   }

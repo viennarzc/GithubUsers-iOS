@@ -20,9 +20,9 @@ protocol Normal: UserTableCell {
 }
 
 protocol Notable: UserTableCell {
-  var hasNotes: Bool { get set}
+
 }
 
 protocol Invertable: UserTableCell {
-  var isInverted: Bool { get set }
+
 }
