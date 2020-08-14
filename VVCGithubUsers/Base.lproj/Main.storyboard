@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="368.11594202898556" y="126.5625"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="60d-73-Hm6">
             <objects>
-                <viewController id="d9H-YS-EsW" sceneMemberID="viewController">
+                <viewController id="d9H-YS-EsW" customClass="ProfileViewController" customModule="VVCGithubUsers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nb5-Yo-kAB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,6 +182,14 @@
                         <viewLayoutGuide key="safeArea" id="lw1-4b-xtl"/>
                     </view>
                     <navigationItem key="navigationItem" id="dab-Ua-Y7a"/>
+                    <connections>
+                        <outlet property="blogLabel" destination="dSP-Fq-aUq" id="lmt-0F-0rD"/>
+                        <outlet property="companyLabel" destination="XSt-gj-Wum" id="ae4-nT-lwV"/>
+                        <outlet property="followersLabel" destination="eLh-mA-vvQ" id="966-TE-es8"/>
+                        <outlet property="followingLabel" destination="Nzn-sc-736" id="if7-wI-dio"/>
+                        <outlet property="userAvatar" destination="K9G-6C-gUK" id="7Eu-WM-bCo"/>
+                        <outlet property="userNameLabel" destination="yYy-xR-XBb" id="yar-AR-5ZP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="md0-eD-2Rl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

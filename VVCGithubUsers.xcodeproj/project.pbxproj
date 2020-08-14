@@ -29,6 +29,7 @@
 		86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5924E5F817008F79D8 /* ProfileViewController.swift */; };
 		86700D5C24E5F927008F79D8 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5B24E5F927008F79D8 /* UserProfile.swift */; };
 		86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */; };
+		86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		86700D5924E5F817008F79D8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		86700D5B24E5F927008F79D8 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
+		86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				86700D5924E5F817008F79D8 /* ProfileViewController.swift */,
+				86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,
 				86700CF824E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift in Sources */,
+				86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */,
 				86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
 				86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */,
