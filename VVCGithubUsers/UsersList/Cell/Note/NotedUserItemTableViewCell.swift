@@ -9,6 +9,7 @@
 import UIKit
 
 class NotedUserItemTableViewCell: UITableViewCell, Notable {
+  
   func setContainerBorder() {
     container.layer.borderColor = UIColor.separator.cgColor
     container.layer.borderWidth = 1
@@ -21,6 +22,7 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var avatarView: UIImageView!
+  @IBOutlet weak var notesIndicator: UIImageView!
   
   func update() {
     guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
@@ -72,10 +74,10 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
   func setupUI() {
     let paperClip = UIImage.init(systemName: "rectangle.and.paperclip")
 
-    let imageView = UIImageView(image: paperClip)
-
-    self.accessoryView = imageView
+    notesIndicator.image = paperClip
     backgroundColor = .clear
+    avatarView.layer.cornerRadius = avatarView.frame.width / 2
+    
     setContainerBorder()
     
   }

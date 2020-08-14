@@ -32,23 +32,34 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kPT-vX-rZ8">
-                                        <rect key="frame" x="75" y="0.0" width="225" height="50"/>
+                                        <rect key="frame" x="75" y="0.0" width="165" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clr-Fv-EuL">
-                                                <rect key="frame" x="0.0" y="0.0" width="225" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="165" height="32"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXI-eH-kJ1">
-                                                <rect key="frame" x="0.0" y="32" width="225" height="18"/>
+                                                <rect key="frame" x="0.0" y="32" width="165" height="18"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgS-5C-gBL">
+                                        <rect key="frame" x="265" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ClS-Op-UZ9"/>
+                                            <constraint firstAttribute="width" constant="30" id="EtZ-rC-L0a"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sgS-5C-gBL" secondAttribute="trailing" constant="5" id="3I0-tv-jdj"/>
+                                    <constraint firstItem="sgS-5C-gBL" firstAttribute="centerY" secondItem="Eyb-0Y-7yY" secondAttribute="centerY" id="Djh-qc-p2k"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -74,6 +85,7 @@
             <connections>
                 <outlet property="avatarView" destination="6W4-CJ-Du7" id="H9z-FM-QGO"/>
                 <outlet property="container" destination="6Us-6n-Cd1" id="5z4-Yp-8tu"/>
+                <outlet property="notesIndicator" destination="sgS-5C-gBL" id="t4o-H2-rpz"/>
                 <outlet property="userDetailsLabel" destination="RXI-eH-kJ1" id="FaA-Yj-UKg"/>
                 <outlet property="userNameLabel" destination="Clr-Fv-EuL" id="rqO-2R-QDt"/>
             </connections>

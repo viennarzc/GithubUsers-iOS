@@ -92,9 +92,36 @@ class ProfileViewController: UIViewController {
     vm.save(notes: text) { (error) in
       if let error = error {
         print(error)
+        
+        return
+      }
+      
+      self.presentNotesSavedAlert()
+    }
+    
+    vm.updateUserHasNotes { (error) in
+      if let error = error {
+        print(error)
       }
     }
   }
+  
+  /// Presents Purchase alert
+  private func presentNotesSavedAlert() {
+
+    let alertVC = UIAlertController(
+      title: nil,
+      message: "Notes saved!",
+      preferredStyle: .alert)
+
+    let dismissAction = UIAlertAction(title: "Awesome!", style: .default) { (_) in
+      alertVC.dismiss(animated: true, completion: nil)
+    }
+    alertVC.addAction(dismissAction)
+
+    present(alertVC, animated: true, completion: nil)
+  }
+
   
 }
 

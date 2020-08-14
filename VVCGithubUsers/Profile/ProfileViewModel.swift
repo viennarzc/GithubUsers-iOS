@@ -83,4 +83,30 @@ class ProfileViewModel {
 
   }
   
+  func updateUserHasNotes(completion: @escaping (Error?) -> Void) {
+    let managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
+
+    let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
+    fetchRequest.predicate = NSPredicate(format: "id = %@", "\(id)")
+
+    do {
+      let results = try managedObjectContext.fetch(fetchRequest)
+      if results.isEmpty {
+        completion(MyError.first(message: "Empty results"))
+        return
+      }
+
+      let managedObject = results[0]
+      managedObject.setValue(true, forKey: "hasNotes")
+
+      try managedObjectContext.save()
+      
+      completion(nil)
+
+    } catch let error {
+      print(error)
+      completion(error)
+    }
+  }
+  
 }

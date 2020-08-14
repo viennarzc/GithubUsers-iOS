@@ -15,22 +15,15 @@ class GitHubUser: NSManagedObject, Codable {
   @NSManaged var avatarURL: String
   @NSManaged var type: String
   @NSManaged var siteAdmin: Bool
-
-
-  var hasNotes: Bool {
-    notes != nil && notes != ""
-  }
-
-  var notes: String? {
-    ""
-  }
-
+  @NSManaged var hasNotes: Bool
+  
   enum CodingKeys: String, CodingKey {
     case login
     case id
     case avatarURL = "avatar_url"
     case type
     case siteAdmin = "site_admin"
+    case hasNotes
   }
 
   // MARK: - Decodable
@@ -49,6 +42,7 @@ class GitHubUser: NSManagedObject, Codable {
     self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
     self.type = try container.decode(String.self, forKey: .type)
     self.siteAdmin = try container.decode(Bool.self, forKey: .siteAdmin)
+    self.hasNotes = try container.decode(Bool.self, forKey: .hasNotes)
   }
 
   // MARK: - Encodable
@@ -59,6 +53,7 @@ class GitHubUser: NSManagedObject, Codable {
     try container.encode(avatarURL, forKey: .avatarURL)
     try container.encode(type, forKey: .type)
     try container.encode(siteAdmin, forKey: .siteAdmin)
+    try container.encode(hasNotes, forKey: .hasNotes)
   }
 
 }

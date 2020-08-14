@@ -95,5 +95,14 @@ class UserProfileTests: XCTestCase {
       XCTAssert(error == nil)
     }
   }
+  
+  func testCanUpdateUserHasNotes() {
+    
+    let p = ProfileViewModel(userName: "mojombo", id: 1)
+    
+    p.updateUserHasNotes { (error) in
+      XCTAssert(error == nil)
+    }
+  }
 
 }
