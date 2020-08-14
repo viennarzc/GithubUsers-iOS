@@ -8,18 +8,35 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class UsersTableViewModel {
   var cellViewModels: [CellItemable] = []
 
-  private var lastUserID: Int = 0
+  private var lastUserID: Int16 = 0
   private(set) var selectedUser: CellItemable?
+
+  private(set) var profileViewModel: ProfileViewModel?
+
+  private let persistentContainer: NSPersistentContainer = NetworkManager.shared.persistentContainer
 
   func setSelectedUser(indexPath: IndexPath) {
     selectedUser = cellViewModels[indexPath.row]
+
+    if let selected = selectedUser {
+      profileViewModel = ProfileViewModel(userName: selected.userName, id: selected.id)
+    }
+
   }
 
   func fetchUsers(completion: @escaping (Error?) -> Void) {
+    if let users = fetchFromStorage(), !users.isEmpty {
+      self.cellViewModels = mapToCellViewModels(from: users)
+      completion(nil)
+      return
+    }
+
+
     NetworkManager.shared.fetchUsers { (result) in
       switch result {
       case .failure(let error):
@@ -30,15 +47,20 @@ class UsersTableViewModel {
           self.lastUserID = lastUser.id
         }
 
-        self.cellViewModels = users.enumerated().map { (index, element: GitHubUser) in
-          return UserTableCellViewModel(user: element, index: index)
-        }
-
+        self.cellViewModels = self.mapToCellViewModels(from: users)
 
         completion(nil)
       }
 
     }
+  }
+  
+  func mapToCellViewModels(from users: [GitHubUser]) -> [CellItemable] {
+    let mapped = users.enumerated().map { (index, element: GitHubUser) in
+      return UserTableCellViewModel(user: element, index: index)
+    }
+    
+    return mapped
   }
 
   func fetchMoreUsers(completion: @escaping (Error?) -> Void) {
@@ -64,11 +86,28 @@ class UsersTableViewModel {
     }
   }
 
+  func fetchFromStorage() -> [GitHubUser]? {
+
+    let managedObjectContext = self.persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
+    let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+    fetchRequest.sortDescriptors = [sortDescriptor]
+
+    do {
+      let users = try managedObjectContext.fetch(fetchRequest)
+      return users
+    } catch let error {
+      print(error)
+      return nil
+    }
+  }
+
 }
 
 
 protocol CellItemable {
   var userName: String { get set }
+  var id: Int16 { get set }
 
   func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
   var cellType: CellType { get set }

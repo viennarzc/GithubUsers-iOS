@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
@@ -19,18 +20,29 @@ final class NetworkManager {
 
   static let shared = NetworkManager()
 
+  var persistentContainer: NSPersistentContainer = {
+
+    let container = NSPersistentContainer(name: "VVCGithubUsers")
+    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+      if let error = error as NSError? {
+
+        fatalError("Unresolved error \(error), \(error.userInfo)")
+      }
+    })
+    return container
+  }()
   private let session: URLSession?
   private let baseUrlString = "https://api.github.com"
   private var dataTask: URLSessionDataTask?
-  
+
   init() {
     let config = URLSessionConfiguration.default
     config.waitsForConnectivity = true
-    
+
     session = URLSession(configuration: config)
   }
 
-  func fetchUsers(since: Int = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
+  func fetchUsers(since: Int16 = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
     if var urlComponents = URLComponents(string: baseUrlString) {
       urlComponents.path = "/users"
@@ -54,13 +66,24 @@ final class NetworkManager {
           let response = response as? HTTPURLResponse,
           response.statusCode == 200 {
 
-          let decoder = JSONDecoder()
-
           do {
+            //Decode
+
+            guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
+              fatalError("Failed to retrieve managed object context")
+            }
+
+            let managedObjectContext = self?.persistentContainer.viewContext
+            let decoder = JSONDecoder()
+            decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
+
             let users = try decoder.decode([GitHubUser].self, from: data)
-            
+
+            //Save
+            try managedObjectContext!.save()
+
             completion(.success(users))
-            
+
           } catch {
             completion(.failure(error))
           }
@@ -74,9 +97,9 @@ final class NetworkManager {
     dataTask?.resume()
 
   }
-  
+
   func fetchUser(with loginName: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-    
+
     if var urlComponents = URLComponents(string: baseUrlString) {
       urlComponents.path = "/users/\(loginName)"
 
@@ -92,19 +115,28 @@ final class NetworkManager {
           return
         }
 
-        //Decode
 
         if let data = data,
           let response = response as? HTTPURLResponse,
           response.statusCode == 200 {
 
-          let decoder = JSONDecoder()
-
           do {
+            //Decode
+
+            guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
+              fatalError("Failed to retrieve managed object context")
+            }
+
+            let managedObjectContext = self?.persistentContainer.viewContext
+            let decoder = JSONDecoder()
+            decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
+
             let user = try decoder.decode(UserProfile.self, from: data)
-            
+
+            try managedObjectContext!.save()
+
             completion(.success(user))
-            
+
           } catch {
             completion(.failure(error))
           }
@@ -116,7 +148,7 @@ final class NetworkManager {
     }
 
     dataTask?.resume()
-    
+
   }
 
   func loadImages(with url: URL, completion: @escaping (UIImage?, Error?) -> Void) {

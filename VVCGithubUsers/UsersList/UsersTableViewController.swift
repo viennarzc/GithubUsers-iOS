@@ -59,9 +59,9 @@ class UsersTableViewController: UITableViewController {
     
     if segue.identifier == SegueIdentifier.profile,
       let destVC = segue.destination as? ProfileViewController,
-      let selectedUser = viewModel.selectedUser {
+      let _ = viewModel.selectedUser {
       
-      destVC.viewModel = ProfileViewModel(userName: selectedUser.userName)
+      destVC.viewModel = viewModel.profileViewModel
       
     }
     
