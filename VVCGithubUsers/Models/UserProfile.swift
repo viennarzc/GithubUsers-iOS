@@ -11,8 +11,9 @@ import CoreData
 
 class UserProfile: NSManagedObject, Codable {
   @NSManaged var login: String
-  @NSManaged var followers: Int
-  @NSManaged var following: Int
+  @NSManaged var id: Int16
+  @NSManaged var followers: Int16
+  @NSManaged var following: Int16
   @NSManaged var avatarURL: String
   @NSManaged var name: String
   @NSManaged var company: String?
@@ -20,6 +21,7 @@ class UserProfile: NSManagedObject, Codable {
 
   enum CodingKeys: String, CodingKey {
     case login
+    case id
     case following
     case followers
     case avatarURL = "avatar_url"
@@ -40,8 +42,9 @@ class UserProfile: NSManagedObject, Codable {
 
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.login = try container.decode(String.self, forKey: .login)
-    self.following = try container.decode(Int.self, forKey: .following)
-    self.followers = try container.decode(Int.self, forKey: .followers)
+    self.id = try container.decode(Int16.self, forKey: .id)
+    self.following = try container.decode(Int16.self, forKey: .following)
+    self.followers = try container.decode(Int16.self, forKey: .followers)
     self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
     self.name = try container.decode(String.self, forKey: .name)
     self.company = try container.decodeIfPresent(String.self, forKey: .company)
@@ -53,6 +56,7 @@ class UserProfile: NSManagedObject, Codable {
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(login, forKey: .login)
+    try container.encode(id, forKey: .id)
     try container.encode(following, forKey: .following)
     try container.encode(followers, forKey: .followers)
     try container.encode(avatarURL, forKey: .avatarURL)

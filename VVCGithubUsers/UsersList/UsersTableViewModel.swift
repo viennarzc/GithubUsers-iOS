@@ -14,9 +14,16 @@ class UsersTableViewModel {
 
   private var lastUserID: Int = 0
   private(set) var selectedUser: CellItemable?
+  
+  private(set) var profileViewModel: ProfileViewModel?
 
   func setSelectedUser(indexPath: IndexPath) {
     selectedUser = cellViewModels[indexPath.row]
+    
+    if let selected = selectedUser {
+      profileViewModel = ProfileViewModel(userName: selected.userName, id: selected.id)
+    }
+    
   }
 
   func fetchUsers(completion: @escaping (Error?) -> Void) {
@@ -69,7 +76,8 @@ class UsersTableViewModel {
 
 protocol CellItemable {
   var userName: String { get set }
-
+  var id: Int { get set }
+  
   func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
   var cellType: CellType { get set }
 

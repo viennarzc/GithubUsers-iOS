@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 struct UserTableCellViewModel: CellItemable {
+  var id: Int
+  
   var userName: String
   
   internal var cellType: CellType
@@ -22,6 +24,7 @@ struct UserTableCellViewModel: CellItemable {
     self.userName = user.login
     self.hasNotes = user.hasNotes
     self.avatarUrl = user.avatarURL
+    self.id = user.id
     
     let i = index + 1
 

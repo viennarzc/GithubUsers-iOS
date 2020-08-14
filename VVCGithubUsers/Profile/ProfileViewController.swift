@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ProfileViewController: UIViewController {
 
@@ -18,7 +19,7 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var companyLabel: UILabel!
   @IBOutlet weak var blogLabel: UILabel!
   @IBOutlet weak var textView: UITextView!
-  
+
 
   var viewModel: ProfileViewModel? {
     didSet {
@@ -28,7 +29,7 @@ class ProfileViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     textView.text = "Add Notes..."
     textView.textColor = .systemGray
     textView.delegate = self
@@ -36,41 +37,42 @@ class ProfileViewController: UIViewController {
   }
 
   func fetch() {
+
     viewModel?.fetchUserProfile { (error) in
       if let error = error {
         print(error)
         return
       }
-      
+
       DispatchQueue.main.async {
         self.updateUI()
-        
+
       }
-      
+
       self.loadAvatar()
-      
+
     }
   }
-  
+
   func loadAvatar() {
     guard let vm = viewModel else { return }
-    
-    
+
     guard let userProfile = vm.userProfile,
       let url = URL(string: userProfile.avatarURL) else { return }
-    
+
     NetworkManager.shared.loadImages(with: url) { (image, error) in
       if let error = error {
         print(error)
         return
       }
-      
+
       DispatchQueue.main.async {
         self.userAvatar.image = image
       }
-  
+
     }
   }
+
 
   func updateUI() {
     guard let vm = viewModel else { return }
@@ -83,9 +85,9 @@ class ProfileViewController: UIViewController {
       blogLabel.text = "blog: \(userProfile.blog ?? "None")"
       navigationItem.title = userProfile.name
     }
-    
+
     //navigation title
-    
+
 
   }
 }

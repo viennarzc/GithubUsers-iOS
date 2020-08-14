@@ -61,7 +61,7 @@ class UsersTableViewController: UITableViewController {
       let destVC = segue.destination as? ProfileViewController,
       let selectedUser = viewModel.selectedUser {
       
-      destVC.viewModel = ProfileViewModel(userName: selectedUser.userName)
+      destVC.viewModel = viewModel.profileViewModel
       
     }
     
