@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
     super.viewDidLoad()
 
     textView.delegate = self
+    textView.addDoneKeyboardToolbarButton()
 
   }
 
@@ -130,6 +131,10 @@ extension ProfileViewController: UITextViewDelegate {
   
     textView.textColor = .label
   }
+  
+  func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+    return true
+  }
 }
 
 enum MyError: Error {
@@ -139,3 +144,23 @@ enum MyError: Error {
     var localizedDescription: String { return "Error" }
 }
 
+
+extension UITextView {
+  func addDoneKeyboardToolbarButton() {
+    let toolBar = UIToolbar()
+    let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonTapped))
+    toolBar.barStyle = .default
+    toolBar.sizeToFit()
+    
+    toolBar.setItems([space, doneButton], animated: false)
+    toolBar.isUserInteractionEnabled = true
+    
+    self.inputAccessoryView = toolBar
+  }
+  
+  @objc
+  private func doneButtonTapped() {
+    self.resignFirstResponder()
+  }
+}
