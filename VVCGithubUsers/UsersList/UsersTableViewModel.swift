@@ -18,8 +18,6 @@ class UsersTableViewModel {
 
   private(set) var profileViewModel: ProfileViewModel?
 
-  private let persistentContainer: NSPersistentContainer = NetworkManager.shared.persistentContainer
-
   func setSelectedUser(indexPath: IndexPath) {
     selectedUser = cellViewModels[indexPath.row]
 
@@ -88,7 +86,7 @@ class UsersTableViewModel {
 
   func fetchFromStorage() -> [GitHubUser]? {
 
-    let managedObjectContext = self.persistentContainer.viewContext
+    let managedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
     let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
     fetchRequest.sortDescriptors = [sortDescriptor]

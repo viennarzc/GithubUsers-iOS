@@ -13,15 +13,15 @@ import CoreData
 class UserProfileTests: XCTestCase {
   var persistentContainer: NSPersistentContainer = {
 
-     let container = NSPersistentContainer(name: "VVCGithubUsers")
-     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-       if let error = error as NSError? {
+    let container = NSPersistentContainer(name: "VVCGithubUsers")
+    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+      if let error = error as NSError? {
 
-         fatalError("Unresolved error \(error), \(error.userInfo)")
-       }
-     })
-     return container
-   }()
+        fatalError("Unresolved error \(error), \(error.userInfo)")
+      }
+    })
+    return container
+  }()
 
   func testFetchUserProfileHasData() {
     NetworkManager.shared.fetchUser(with: "mojombo") { (result) in
@@ -33,7 +33,7 @@ class UserProfileTests: XCTestCase {
       }
     }
   }
-  
+
   func testDecodingUserProfile() throws {
     let jsonString = """
       {
@@ -72,9 +72,9 @@ class UserProfileTests: XCTestCase {
       }
 
     """
-    
+
     let jsonData: Data = jsonString.data(using: .utf8)!
-    
+
     guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
       fatalError("Failed to retrieve managed object context")
     }
@@ -82,24 +82,58 @@ class UserProfileTests: XCTestCase {
     let managedObjectContext = self.persistentContainer.viewContext
     let decoder = JSONDecoder()
     decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
-    
+
     XCTAssertNoThrow(try decoder.decode(UserProfile.self, from: jsonData))
   }
-  
+
   func testSaveNotes() {
     let notes = "Ryu ga waga teki wo kurau!"
-    
+
     let p = ProfileViewModel(userName: "mojombo", id: 1)
-    
+
     p.save(notes: notes) { (error) in
       XCTAssert(error == nil)
     }
   }
-  
-  func testCanUpdateUserHasNotes() {
-    
+
+  func testSaveNotesInPrivateQueueConcurrency() {
+    let notes = "Ryu ga waga teki wo kurau!"
+
     let p = ProfileViewModel(userName: "mojombo", id: 1)
-    
+
+    p.saveInPrivateQueue(notes: notes) { (error) in
+      XCTAssert(error == nil, error!.localizedDescription)
+    }
+  }
+
+  func testMeasureSaveNotesPrivateQueueConcurrency() {
+    let notes = "Ryu ga waga teki wo kurau!"
+
+    let p = ProfileViewModel(userName: "mojombo", id: 1)
+
+    measure {
+      p.saveInPrivateQueue(notes: notes) { (error) in
+
+      }
+    }
+  }
+
+  func testMeasureSaveNotes() {
+    let notes = "Ryu ga waga teki wo kurau!"
+
+    let p = ProfileViewModel(userName: "mojombo", id: 1)
+
+    measure {
+      p.save(notes: notes) { (error) in
+
+      }
+    }
+  }
+
+  func testCanUpdateUserHasNotes() {
+
+    let p = ProfileViewModel(userName: "mojombo", id: 1)
+
     p.updateUserHasNotes { (error) in
       XCTAssert(error == nil)
     }
