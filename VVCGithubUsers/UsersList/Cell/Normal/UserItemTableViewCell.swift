@@ -47,7 +47,10 @@ class UserItemTableViewCell: UITableViewCell, Normal {
   
   func update() {
     guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
-    self.imageURL = url
+    
+    imageURL = url
+    userNameLabel.text = vm.userName.capitalized
+    userDetailsLabel.text = vm.details
 
     // retrieves image if already available in cache
     if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
@@ -75,8 +78,7 @@ class UserItemTableViewCell: UITableViewCell, Normal {
 
     }
 
-    userNameLabel.text = vm.userName.capitalized
-    userDetailsLabel.text = vm.details
+    
   }
 
 
