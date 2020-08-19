@@ -90,7 +90,7 @@ class ProfileViewController: UIViewController {
   @IBAction func didTapSaveNotes(_ sender: Any) {
     guard let vm = viewModel, let text = textView.text else { return }
     
-    vm.save(notes: text) { (error) in
+    vm.saveInPrivateQueue(notes: text) { (error) in
       if let error = error {
         print(error)
         
