@@ -38,6 +38,15 @@ class ImageStoreTests: XCTestCase {
     ImageStoreManager.shared.saveToDisk(image!, fileName: "test")
   }
   
+  func testImageExistsOnDisk() {
+    saveImage()
+    
+    let fileName = "test"
+    
+    let result = ImageStoreManager.shared.checkImageOnDiskIfExists(with: fileName)
+    XCTAssert(result)
+  }
+  
   func testCanGetImage() {
     saveImage()
     

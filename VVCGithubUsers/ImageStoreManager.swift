@@ -25,6 +25,18 @@ final class ImageStoreManager {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
   }
+  
+  func checkImageOnDiskIfExists(with fileName: String) -> Bool {
+    let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+    let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+    let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+    if let dirPath = paths.first {
+      let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("\(fileName).png")
+      return (UIImage(contentsOfFile: imageURL.path) != nil)
+      // Do whatever you want with the image
+    }
+    return false
+  }
 
   func getImageFromDisk(of fileName: String) -> UIImage? {
     let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
