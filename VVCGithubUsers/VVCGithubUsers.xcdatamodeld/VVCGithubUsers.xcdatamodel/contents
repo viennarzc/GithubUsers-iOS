@@ -13,7 +13,7 @@
         <attribute name="blog" optional="YES" attributeType="String"/>
         <attribute name="company" optional="YES" attributeType="String"/>
         <attribute name="followers" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="following" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="following" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="login" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
