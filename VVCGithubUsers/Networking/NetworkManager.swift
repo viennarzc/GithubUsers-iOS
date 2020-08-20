@@ -43,7 +43,7 @@ final class NetworkManager {
     session = URLSession(configuration: config)
   }
 
-  func fetchUsers(since: Int16 = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
+  func fetchUsers(since: Int64 = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
     if var urlComponents = URLComponents(string: baseUrlString) {
       urlComponents.path = "/users"
@@ -133,8 +133,8 @@ final class NetworkManager {
             decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
 
             let user = try decoder.decode(UserProfile.self, from: data)
-
-            try managedObjectContext.save()
+            
+            PersistenceManager.shared.savePrivateContext(for: managedObjectContext)
 
             completion(.success(user))
 

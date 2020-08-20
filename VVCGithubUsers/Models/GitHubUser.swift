@@ -11,7 +11,7 @@ import CoreData
 
 class GitHubUser: NSManagedObject, Codable {
   @NSManaged var login: String
-  @NSManaged var id: Int16
+  @NSManaged var id: Int64
   @NSManaged var avatarURL: String
   @NSManaged var type: String
   @NSManaged var siteAdmin: Bool
@@ -38,7 +38,7 @@ class GitHubUser: NSManagedObject, Codable {
 
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.login = try container.decode(String.self, forKey: .login)
-    self.id = try container.decode(Int16.self, forKey: .id)
+    self.id = try container.decode(Int64.self, forKey: .id)
     self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
     self.type = try container.decode(String.self, forKey: .type)
     self.siteAdmin = try container.decode(Bool.self, forKey: .siteAdmin)

@@ -11,11 +11,11 @@ import CoreData
 
 class ProfileViewModel {
   private let userName: String
-  private let id: Int16
+  private let id: Int64
 
   private(set) var userProfile: UserProfile?
 
-  init(userName: String, id: Int16) {
+  init(userName: String, id: Int64) {
     self.userName = userName
     self.id = id
   }

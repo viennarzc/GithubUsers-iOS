@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct UserTableCellViewModel: CellItemable {
-  var id: Int16
+  var id: Int64
 
   var userName: String
   var details: String
