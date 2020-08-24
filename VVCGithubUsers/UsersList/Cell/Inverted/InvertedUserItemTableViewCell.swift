@@ -9,12 +9,16 @@
 import UIKit
 
 class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
-  
+  func saveImageToDisk(_ image: UIImage, fileName: String) {
+    ImageStoreManager.shared.saveToDisk(image, fileName: fileName)
+  }
+
+
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var container: UIView!
-  
+
   var imageURL: URL?
 
   var viewModel: UserTableCellViewModel? {
@@ -24,7 +28,7 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
   }
 
   var isInverted: Bool = true
-  
+
   //MARK: - Life Cycle
 
 
@@ -33,14 +37,14 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
     // Initialization code
     setupUI()
   }
-  
+
   override func prepareForReuse() {
     super.prepareForReuse()
-    
+
     //we set to default to avoid images being reused in other cells
     avatarView.image = nil
   }
-  
+
   //MARK: - Custom Methods
 
   func setContainerBorder() {
@@ -48,20 +52,19 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
     container.layer.borderWidth = 1
     container.layer.cornerRadius = 5
   }
-  
-  
+
+
   func update() {
 
     guard let vm = viewModel,
       let url = URL(string: vm.avatarUrl) else { return }
-    
+
     imageURL = url
     userNameLabel.text = vm.userName.capitalized
     userDetailsLabel.text = vm.details
 
-    // retrieves image if already available in cache
-    if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
-      self.avatarView.image = self.invertColor(of: imageFromCache)
+    if let image = ImageStoreManager.shared.getImageFromDisk(of: vm.userName) {
+      self.avatarView.image = self.invertColor(of: image)
       return
     }
 
@@ -78,6 +81,7 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
 
         if self.imageURL == url, let img = image {
           self.avatarView.image = self.invertColor(of: img)
+          self.saveImageToDisk(img, fileName: vm.userName)
         }
 
       })
@@ -104,7 +108,7 @@ class InvertedUserItemTableViewCell: UITableViewCell, Invertable {
     setContainerBorder()
     backgroundColor = .clear
   }
-  
+
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)

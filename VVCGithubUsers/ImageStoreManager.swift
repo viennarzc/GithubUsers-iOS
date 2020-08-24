@@ -13,10 +13,19 @@ final class ImageStoreManager {
   public static let shared = ImageStoreManager()
 
   func saveToDisk(_ image: UIImage, fileName: String) {
+    
+    if checkImageOnDiskIfExists(with: fileName) {
+      return
+    }
+    
+    if let data = image.jpegData(compressionQuality: 0.5) {
+      let fileURL = getDocumentsDirectory().appendingPathComponent("\(fileName).png")
 
-    if let data = image.pngData() {
-      let filename = getDocumentsDirectory().appendingPathComponent("\(fileName).png")
-      try? data.write(to: filename)
+      do {
+        try data.write(to: fileURL)
+      } catch let error {
+        print("Error saving with error", error )
+      }
     }
 
   }
@@ -39,9 +48,12 @@ final class ImageStoreManager {
   }
 
   func getImageFromDisk(of fileName: String) -> UIImage? {
+    
     let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
     let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
     let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+    
+    print("path",paths.first)
     if let dirPath = paths.first {
       let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("\(fileName).png")
       return UIImage(contentsOfFile: imageURL.path)

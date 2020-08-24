@@ -9,12 +9,16 @@
 import UIKit
 
 class UserItemTableViewCell: UITableViewCell, Normal {
-  
+  func saveImageToDisk(_ image: UIImage, fileName: String) {
+    ImageStoreManager.shared.saveToDisk(image, fileName: fileName)
+  }
+
+
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var container: UIView!
-  
+
   var imageURL: URL?
 
   var viewModel: UserTableCellViewModel? {
@@ -28,7 +32,7 @@ class UserItemTableViewCell: UITableViewCell, Normal {
 
     setupUI()
   }
-  
+
   override func prepareForReuse() {
     super.prepareForReuse()
 
@@ -36,7 +40,7 @@ class UserItemTableViewCell: UITableViewCell, Normal {
     avatarView.image = nil
 
   }
-  
+
   //MARK: - Methods
 
   func setContainerBorder() {
@@ -44,17 +48,17 @@ class UserItemTableViewCell: UITableViewCell, Normal {
     container.layer.borderWidth = 1
     container.layer.cornerRadius = 5
   }
-  
+
   func update() {
     guard let vm = viewModel, let url = URL(string: vm.avatarUrl) else { return }
-    
+
     imageURL = url
     userNameLabel.text = vm.userName.capitalized
     userDetailsLabel.text = vm.details
 
     // retrieves image if already available in cache
-    if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
-      self.avatarView.image = imageFromCache
+    if let image = ImageStoreManager.shared.getImageFromDisk(of: vm.userName) {
+      self.avatarView.image = image
       return
     }
 
@@ -70,15 +74,16 @@ class UserItemTableViewCell: UITableViewCell, Normal {
           imageCache.setObject(image, forKey: url as AnyObject)
         }
 
-        if self.imageURL == url {
-          self.avatarView.image = image
+        if self.imageURL == url, let img = image {
+          self.avatarView.image = img
+          self.saveImageToDisk(img, fileName: vm.userName)
         }
 
       })
 
     }
 
-    
+
   }
 
 
