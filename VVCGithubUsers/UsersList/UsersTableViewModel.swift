@@ -28,7 +28,9 @@ class UsersTableViewModel {
   }
 
   func fetchUsers(completion: @escaping (Error?) -> Void) {
-    if let users = fetchFromStorage(), !users.isEmpty {
+    print("fire fetch")
+    if let users = fetchFromStorage(),
+      !users.isEmpty {
       self.cellViewModels = mapToCellViewModels(from: users)
       completion(nil)
       return
@@ -62,6 +64,7 @@ class UsersTableViewModel {
   }
 
   func fetchMoreUsers(completion: @escaping (Error?) -> Void) {
+    print("fire fetch more users")
     NetworkManager.shared.fetchUsers(since: self.lastUserID) { (result) in
       switch result {
       case .failure(let error):

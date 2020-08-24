@@ -20,18 +20,6 @@ final class NetworkManager {
 
   static let shared = NetworkManager()
 
-//  var persistentContainer: NSPersistentContainer = {
-//
-//    let container = NSPersistentContainer(name: "VVCGithubUsers")
-//    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//      if let error = error as NSError? {
-//
-//        fatalError("Unresolved error \(error), \(error.userInfo)")
-//      }
-//    })
-//    return container
-//  }()
-  
   private let session: URLSession?
   private let baseUrlString = "https://api.github.com"
   private var dataTask: URLSessionDataTask?
@@ -80,8 +68,15 @@ final class NetworkManager {
 
             let users = try decoder.decode([GitHubUser].self, from: data)
 
-            //Save
-            try managedObjectContext.save()
+            let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
+
+            let results = try managedObjectContext.fetch(fetchRequest)
+            if results.isEmpty {
+
+              //Save
+              try managedObjectContext.save()
+              return
+            }
 
             completion(.success(users))
 
@@ -127,13 +122,14 @@ final class NetworkManager {
             guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
               fatalError("Failed to retrieve managed object context")
             }
-            
+
             let managedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
             let decoder = JSONDecoder()
             decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
 
             let user = try decoder.decode(UserProfile.self, from: data)
-            
+
+
             PersistenceManager.shared.savePrivateContext(for: managedObjectContext)
 
             completion(.success(user))

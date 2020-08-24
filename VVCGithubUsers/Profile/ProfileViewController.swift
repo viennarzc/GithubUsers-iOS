@@ -51,17 +51,14 @@ class ProfileViewController: UIViewController {
     }
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
     self.loadAvatar()
   }
 
   func loadAvatar() {
     guard let vm = viewModel else { return }
-
-    guard let userProfile = vm.userProfile,
-      let url = URL(string: userProfile.avatarURL) else { return }
     
     // retrieves image if already available in cache
     if let userProfile = vm.userProfile,
@@ -70,6 +67,9 @@ class ProfileViewController: UIViewController {
       return
     }
 
+    guard let userProfile = vm.userProfile,
+      let url = URL(string: userProfile.avatarURL) else { return }
+    
     NetworkManager.shared.loadImages(with: url) { (image, error) in
       if let error = error {
         print(error)
