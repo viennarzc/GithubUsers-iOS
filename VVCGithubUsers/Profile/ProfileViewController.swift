@@ -48,9 +48,13 @@ class ProfileViewController: UIViewController {
 
       }
 
-      self.loadAvatar()
-
     }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    self.loadAvatar()
   }
 
   func loadAvatar() {
@@ -58,6 +62,13 @@ class ProfileViewController: UIViewController {
 
     guard let userProfile = vm.userProfile,
       let url = URL(string: userProfile.avatarURL) else { return }
+    
+    // retrieves image if already available in cache
+    if let userProfile = vm.userProfile,
+      let image = ImageStoreManager.shared.getImageFromDisk(of: userProfile.login) {
+      self.userAvatar.image = image
+      return
+    }
 
     NetworkManager.shared.loadImages(with: url) { (image, error) in
       if let error = error {
@@ -67,6 +78,7 @@ class ProfileViewController: UIViewController {
 
       DispatchQueue.main.async {
         self.userAvatar.image = image
+        
       }
 
     }

@@ -56,7 +56,7 @@ class UserItemTableViewCell: UITableViewCell, Normal {
     userNameLabel.text = vm.userName.capitalized
     userDetailsLabel.text = vm.details
 
-    // retrieves image if already available in cache
+    // retrieves image if already available in disk
     if let image = ImageStoreManager.shared.getImageFromDisk(of: vm.userName) {
       self.avatarView.image = image
       return
