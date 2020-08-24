@@ -33,6 +33,8 @@ final class NetworkManager {
 
   func fetchUsers(since: Int64 = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
+    print("fire fetch")
+
     if var urlComponents = URLComponents(string: baseUrlString) {
       urlComponents.path = "/users"
       urlComponents.query = "since=\(since)"
@@ -68,15 +70,10 @@ final class NetworkManager {
 
             let users = try decoder.decode([GitHubUser].self, from: data)
 
-            let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
+            //Save
+            try managedObjectContext.save()
 
-            let results = try managedObjectContext.fetch(fetchRequest)
-            if results.isEmpty {
 
-              //Save
-              try managedObjectContext.save()
-              return
-            }
 
             completion(.success(users))
 

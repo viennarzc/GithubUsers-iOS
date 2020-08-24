@@ -37,20 +37,7 @@ class UsersTableViewController: UITableViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
-    viewModel.fetchUsers { (error) in
-      guard let error = error else {
-
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
-        }
-
-        return
-
-      }
-
-      print(error)
-
-    }
+    fetchUsers()
   }
 
   //MARK: - Segue
@@ -97,6 +84,35 @@ extension UsersTableViewController {
     }
 
     showLoadingIndicator(in: tableView, indexPath: indexPath)
+
+  }
+
+  func fetchUsers(delay: Int = 1000) {
+    pendingRequestWorkItem?.cancel()
+
+    let requestWorkItem = DispatchWorkItem { [weak self] in
+      // last cell is partially or fully visible
+      guard let s = self else { return }
+
+      s.viewModel.fetchUsers { (error) in
+        guard let error = error else {
+
+          DispatchQueue.main.async {
+            s.tableView.reloadData()
+          }
+
+          return
+
+        }
+
+        print(error)
+
+      }
+
+    }
+
+    pendingRequestWorkItem = requestWorkItem
+    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: requestWorkItem)
 
   }
 

@@ -28,7 +28,7 @@ class UsersTableViewModel {
   }
 
   func fetchUsers(completion: @escaping (Error?) -> Void) {
-    print("fire fetch")
+  
     if let users = fetchFromStorage(),
       !users.isEmpty {
       self.cellViewModels = mapToCellViewModels(from: users)
