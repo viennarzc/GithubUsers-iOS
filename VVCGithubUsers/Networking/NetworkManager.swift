@@ -128,6 +128,7 @@ final class NetworkManager {
             PersistenceManager.shared.savePrivateContext(for: managedObjectContext)
 
             completion(.success(user))
+            return
 
           } catch {
             completion(.failure(error))
@@ -135,7 +136,9 @@ final class NetworkManager {
 
 
         }
-
+        
+        completion(.failure(MyError.unknown(message: "Unknown Error")))
+        
       }
     }
 

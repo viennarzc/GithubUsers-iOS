@@ -15,6 +15,7 @@ class ProfileTableHeader: UIView {
   var image: UIImage? {
     didSet {
       self.avatarView.image = image
+      avatarView.stopShimmeringAnimation()
     }
   }
   
@@ -32,6 +33,8 @@ class ProfileTableHeader: UIView {
     Bundle.main.loadNibNamed("ProfileTableHeader", owner: self, options: nil)
     
     addSubview(contentView)
+    
+    avatarView.startShimmeringAnimation()
     
     contentView.translatesAutoresizingMaskIntoConstraints = true
     contentView.center = CGPoint(x: bounds.midX, y: bounds.midY)

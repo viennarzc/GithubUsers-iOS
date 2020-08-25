@@ -16,6 +16,11 @@ class ProfileTableViewController: UITableViewController {
   @IBOutlet weak var blogLabel: UILabel!
   @IBOutlet weak var textView: UITextView!
 
+  @IBOutlet weak var followShimmerView: UIView!
+  @IBOutlet weak var nameLoader: UIView!
+  @IBOutlet weak var companyLoader: UIView!
+  @IBOutlet weak var blogLoader: UIView!
+  
   private var tableHeader = ProfileTableHeader(
     frame: CGRect(
       x: 0,
@@ -35,20 +40,43 @@ class ProfileTableViewController: UITableViewController {
     tableView.tableHeaderView = tableHeader
     textView.delegate = self
     textView.addDoneKeyboardToolbarButton()
+    
+    showShimmerLoader()
 
+  }
+  
+  private func showShimmerLoader() {
+    followShimmerView.startShimmeringAnimation()
+    nameLoader.startShimmeringAnimation(animationSpeed: 2, direction: .leftToRight, repeatCount: MAXFLOAT)
+    companyLoader.startShimmeringAnimation(animationSpeed: 2, direction: .leftToRight, repeatCount: MAXFLOAT)
+    blogLoader.startShimmeringAnimation(animationSpeed: 2, direction: .leftToRight, repeatCount: MAXFLOAT)
+  }
+  
+  private func stopShimmerLoader() {
+    followShimmerView.stopShimmeringAnimation()
+    nameLoader.stopShimmeringAnimation()
+    companyLoader.stopShimmeringAnimation()
+    blogLoader.stopShimmeringAnimation()
+    tableHeader.avatarView.stopShimmeringAnimation()
   }
 
   func fetch() {
 
     viewModel?.fetchUserProfile { (error) in
       if let error = error {
-        print(error)
+        
+        DispatchQueue.main.async {
+          self.presentErrorAlert(with: error.localizedDescription)
+          self.stopShimmerLoader()
+        }
+        
         return
       }
 
       DispatchQueue.main.async {
         self.updateUI()
         self.loadAvatar()
+        self.stopShimmerLoader()
       }
 
     }
@@ -69,7 +97,7 @@ class ProfileTableViewController: UITableViewController {
 
     NetworkManager.shared.loadImages(with: url) { (image, error) in
       if let error = error {
-        print(error)
+        self.presentErrorAlert(with: error.localizedDescription)
         return
       }
 
@@ -101,7 +129,7 @@ class ProfileTableViewController: UITableViewController {
 
     vm.saveInPrivateQueue(notes: text) { (error) in
       if let error = error {
-        print(error)
+        self.presentErrorAlert(with: error.localizedDescription)
 
         return
       }
@@ -111,7 +139,7 @@ class ProfileTableViewController: UITableViewController {
 
     vm.updateUserHasNotes { (error) in
       if let error = error {
-        print(error)
+        self.presentErrorAlert(with: error.localizedDescription)
       }
     }
   }
@@ -131,7 +159,8 @@ class ProfileTableViewController: UITableViewController {
 
     present(alertVC, animated: true, completion: nil)
   }
-
+  
+  
 
 }
 
@@ -149,7 +178,7 @@ extension ProfileTableViewController: UITextViewDelegate {
 
 enum MyError: Error {
     case first(message: String)
-    case second(message: String)
+    case unknown(message: String)
 
     var localizedDescription: String { return "Error" }
 }

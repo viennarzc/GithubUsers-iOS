@@ -15,7 +15,7 @@ class UserProfile: NSManagedObject, Codable {
   @NSManaged var followers: Int64
   @NSManaged var following: Int64
   @NSManaged var avatarURL: String
-  @NSManaged var name: String
+  @NSManaged var name: String?
   @NSManaged var company: String?
   @NSManaged var blog: String?
   @NSManaged var notes: String?
@@ -48,7 +48,7 @@ class UserProfile: NSManagedObject, Codable {
     self.following = try container.decode(Int64.self, forKey: .following)
     self.followers = try container.decode(Int64.self, forKey: .followers)
     self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
-    self.name = try container.decode(String.self, forKey: .name)
+    self.name = try container.decodeIfPresent(String.self, forKey: .name)
     self.company = try container.decodeIfPresent(String.self, forKey: .company)
     self.blog = try container.decodeIfPresent(String.self, forKey: .blog)
     self.notes = try container.decodeIfPresent(String.self, forKey: .notes)

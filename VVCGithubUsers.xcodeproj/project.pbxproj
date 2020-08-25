@@ -11,6 +11,8 @@
 		865AEBF324F4B6A6000AA3C5 /* ProfileTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */; };
 		865AEBF524F4B6C3000AA3C5 /* ProfileTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */; };
 		865AEBF824F4BE04000AA3C5 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBF724F4BE04000AA3C5 /* UITextViewExtensions.swift */; };
+		865AEBFA24F4C3CB000AA3C5 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBF924F4C3CB000AA3C5 /* UIViewExtensions.swift */; };
+		865AEBFC24F4CA89000AA3C5 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBFB24F4CA89000AA3C5 /* UIViewControllerExtensions.swift */; };
 		8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277424E3E41900835CA6 /* AppDelegate.swift */; };
 		8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277624E3E41900835CA6 /* SceneDelegate.swift */; };
 		8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277824E3E41900835CA6 /* UsersTableViewController.swift */; };
@@ -55,6 +57,8 @@
 		865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeader.swift; sourceTree = "<group>"; };
 		865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeader.xib; sourceTree = "<group>"; };
 		865AEBF724F4BE04000AA3C5 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
+		865AEBF924F4C3CB000AA3C5 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		865AEBFB24F4CA89000AA3C5 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		8664277124E3E41900835CA6 /* VVCGithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVCGithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8664277424E3E41900835CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8664277624E3E41900835CA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 			children = (
 				86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */,
 				865AEBF724F4BE04000AA3C5 /* UITextViewExtensions.swift */,
+				865AEBF924F4C3CB000AA3C5 /* UIViewExtensions.swift */,
+				865AEBFB24F4CA89000AA3C5 /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86700CFE24E4DD34008F79D8 /* UserTableCellViewModel.swift in Sources */,
+				865AEBFA24F4C3CB000AA3C5 /* UIViewExtensions.swift in Sources */,
 				86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */,
 				86E4EA2C24EE274C008A0B4F /* ImageStoreManager.swift in Sources */,
 				86700D5C24E5F927008F79D8 /* UserProfile.swift in Sources */,
@@ -368,6 +375,7 @@
 				86700D6324E626A9008F79D8 /* VVCGithubUsers.xcdatamodeld in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,
 				865AEBEF24F4B409000AA3C5 /* ProfileTableViewController.swift in Sources */,
+				865AEBFC24F4CA89000AA3C5 /* UIViewControllerExtensions.swift in Sources */,
 				86700CF824E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift in Sources */,
 				86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */,
 				86E4EA2A24ECCF65008A0B4F /* PersistenceManager.swift in Sources */,
