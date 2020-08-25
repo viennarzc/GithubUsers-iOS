@@ -31,7 +31,13 @@ class UsersTableViewModel {
   
     if let users = fetchFromStorage(),
       !users.isEmpty {
+      
       self.cellViewModels = mapToCellViewModels(from: users)
+      //save last user id
+      if let lastUser = users.last {
+        self.lastUserID = lastUser.id
+      }
+      
       completion(nil)
       return
     }
