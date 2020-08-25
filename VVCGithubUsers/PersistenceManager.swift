@@ -12,6 +12,11 @@ import CoreData
 final class PersistenceManager {
   public static let shared = PersistenceManager()
   
+  struct EntityName {
+    static let userProfile = String("\(UserProfile.self)")
+    static let githubUser = String("\(GitHubUser.self)")
+  }
+  
   var persistentContainer: NSPersistentContainer = {
 
     let container = NSPersistentContainer(name: "VVCGithubUsers")

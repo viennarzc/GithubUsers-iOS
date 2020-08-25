@@ -53,7 +53,6 @@ final class ImageStoreManager {
     let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
     let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
     
-    print("path",paths.first)
     if let dirPath = paths.first {
       let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("\(fileName).png")
       return UIImage(contentsOfFile: imageURL.path)

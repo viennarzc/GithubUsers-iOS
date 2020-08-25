@@ -33,8 +33,6 @@ final class NetworkManager {
 
   func fetchUsers(since: Int64 = 0, completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
 
-    print("fire fetch")
-
     if var urlComponents = URLComponents(string: baseUrlString) {
       urlComponents.path = "/users"
       urlComponents.query = "since=\(since)"
