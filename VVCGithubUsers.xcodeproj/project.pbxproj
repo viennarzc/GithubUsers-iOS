@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		865AEBEF24F4B409000AA3C5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */; };
+		865AEBF324F4B6A6000AA3C5 /* ProfileTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */; };
+		865AEBF524F4B6C3000AA3C5 /* ProfileTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */; };
 		8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277424E3E41900835CA6 /* AppDelegate.swift */; };
 		8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277624E3E41900835CA6 /* SceneDelegate.swift */; };
 		8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277824E3E41900835CA6 /* UsersTableViewController.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeader.swift; sourceTree = "<group>"; };
+		865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeader.xib; sourceTree = "<group>"; };
 		8664277124E3E41900835CA6 /* VVCGithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVCGithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8664277424E3E41900835CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8664277624E3E41900835CA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		865AEBF624F4BC66000AA3C5 /* ProfileTableHeader */ = {
+			isa = PBXGroup;
+			children = (
+				865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */,
+				865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */,
+			);
+			path = ProfileTableHeader;
+			sourceTree = "<group>";
+		};
 		8664276824E3E41900835CA6 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +243,7 @@
 		86700D5824E5F7F7008F79D8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				865AEBF624F4BC66000AA3C5 /* ProfileTableHeader */,
 				86700D5924E5F817008F79D8 /* ProfileViewController.swift */,
 				865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */,
 				86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */,
@@ -319,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8664278124E3E41C00835CA6 /* LaunchScreen.storyboard in Resources */,
+				865AEBF524F4B6C3000AA3C5 /* ProfileTableHeader.xib in Resources */,
 				8664277E24E3E41C00835CA6 /* Assets.xcassets in Resources */,
 				86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */,
 				8664277C24E3E41900835CA6 /* Main.storyboard in Resources */,
@@ -359,6 +374,7 @@
 				86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
 				86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */,
+				865AEBF324F4B6A6000AA3C5 /* ProfileTableHeader.swift in Sources */,
 				8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */,
 				86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */,
 			);
