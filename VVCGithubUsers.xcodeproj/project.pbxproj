@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		865AEBEF24F4B409000AA3C5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */; };
+		865AEBF324F4B6A6000AA3C5 /* ProfileTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */; };
+		865AEBF524F4B6C3000AA3C5 /* ProfileTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */; };
 		8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277424E3E41900835CA6 /* AppDelegate.swift */; };
 		8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277624E3E41900835CA6 /* SceneDelegate.swift */; };
 		8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277824E3E41900835CA6 /* UsersTableViewController.swift */; };
@@ -26,7 +29,6 @@
 		86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86700D0024E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib */; };
 		86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5324E535DF008F79D8 /* UserListTests.swift */; };
 		86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */; };
-		86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5924E5F817008F79D8 /* ProfileViewController.swift */; };
 		86700D5C24E5F927008F79D8 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5B24E5F927008F79D8 /* UserProfile.swift */; };
 		86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */; };
 		86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */; };
@@ -48,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeader.swift; sourceTree = "<group>"; };
+		865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeader.xib; sourceTree = "<group>"; };
 		8664277124E3E41900835CA6 /* VVCGithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVCGithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8664277424E3E41900835CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8664277624E3E41900835CA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +76,6 @@
 		86700D4D24E53359008F79D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86700D5324E535DF008F79D8 /* UserListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTests.swift; sourceTree = "<group>"; };
 		86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
-		86700D5924E5F817008F79D8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		86700D5B24E5F927008F79D8 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -100,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		865AEBF624F4BC66000AA3C5 /* ProfileTableHeader */ = {
+			isa = PBXGroup;
+			children = (
+				865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */,
+				865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */,
+			);
+			path = ProfileTableHeader;
+			sourceTree = "<group>";
+		};
 		8664276824E3E41900835CA6 = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +241,8 @@
 		86700D5824E5F7F7008F79D8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				86700D5924E5F817008F79D8 /* ProfileViewController.swift */,
+				865AEBF624F4BC66000AA3C5 /* ProfileTableHeader */,
+				865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */,
 				86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
@@ -316,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8664278124E3E41C00835CA6 /* LaunchScreen.storyboard in Resources */,
+				865AEBF524F4B6C3000AA3C5 /* ProfileTableHeader.xib in Resources */,
 				8664277E24E3E41C00835CA6 /* Assets.xcassets in Resources */,
 				86700D0224E4E0CF008F79D8 /* InvertedUserItemTableViewCell.xib in Resources */,
 				8664277C24E3E41900835CA6 /* Main.storyboard in Resources */,
@@ -349,12 +364,13 @@
 				8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */,
 				86700D6324E626A9008F79D8 /* VVCGithubUsers.xcdatamodeld in Sources */,
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,
+				865AEBEF24F4B409000AA3C5 /* ProfileTableViewController.swift in Sources */,
 				86700CF824E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift in Sources */,
 				86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */,
 				86E4EA2A24ECCF65008A0B4F /* PersistenceManager.swift in Sources */,
 				86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
-				86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */,
+				865AEBF324F4B6A6000AA3C5 /* ProfileTableHeader.swift in Sources */,
 				8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */,
 				86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */,
 			);

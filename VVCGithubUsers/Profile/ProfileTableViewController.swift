@@ -1,18 +1,14 @@
 //
-//  ProfileViewController.swift
+//  ProfileTableViewController.swift
 //  VVCGithubUsers
 //
-//  Created by SCI-Viennarz on 8/14/20.
+//  Created by SCI-Viennarz on 8/25/20.
 //  Copyright © 2020 VVC. All rights reserved.
 //
-
-import Foundation
 import UIKit
-import CoreData
 
-class ProfileViewController: UIViewController {
+class ProfileTableViewController: UITableViewController {
 
-  @IBOutlet weak var userAvatar: UIImageView!
   @IBOutlet weak var followersLabel: UILabel!
   @IBOutlet weak var followingLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
@@ -20,6 +16,7 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var blogLabel: UILabel!
   @IBOutlet weak var textView: UITextView!
 
+  private var tableHeader = ProfileTableHeader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
 
   var viewModel: ProfileViewModel? {
     didSet {
@@ -30,6 +27,7 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    tableView.tableHeaderView = tableHeader
     textView.delegate = self
     textView.addDoneKeyboardToolbarButton()
 
@@ -45,31 +43,32 @@ class ProfileViewController: UIViewController {
 
       DispatchQueue.main.async {
         self.updateUI()
-
+        self.loadAvatar()
       }
 
     }
   }
-  
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
-    self.loadAvatar()
+
+//    self.loadAvatar()
   }
+
 
   func loadAvatar() {
     guard let vm = viewModel else { return }
-    
+
     // retrieves image if already available in cache
     if let userProfile = vm.userProfile,
       let image = ImageStoreManager.shared.getImageFromDisk(of: userProfile.login) {
-      self.userAvatar.image = image
+      tableHeader.image = image
       return
     }
 
     guard let userProfile = vm.userProfile,
       let url = URL(string: userProfile.avatarURL) else { return }
-    
+
     NetworkManager.shared.loadImages(with: url) { (image, error) in
       if let error = error {
         print(error)
@@ -77,8 +76,8 @@ class ProfileViewController: UIViewController {
       }
 
       DispatchQueue.main.async {
-        self.userAvatar.image = image
-        
+        self.tableHeader.image = image
+
       }
 
     }
@@ -98,27 +97,27 @@ class ProfileViewController: UIViewController {
       textView.text = userProfile.notes
     }
   }
-  
+
   @IBAction func didTapSaveNotes(_ sender: Any) {
     guard let vm = viewModel, let text = textView.text else { return }
-    
+
     vm.saveInPrivateQueue(notes: text) { (error) in
       if let error = error {
         print(error)
-        
+
         return
       }
-      
+
       self.presentNotesSavedAlert()
     }
-    
+
     vm.updateUserHasNotes { (error) in
       if let error = error {
         print(error)
       }
     }
   }
-  
+
   /// Presents Purchase alert
   private func presentNotesSavedAlert() {
 
@@ -135,15 +134,16 @@ class ProfileViewController: UIViewController {
     present(alertVC, animated: true, completion: nil)
   }
 
-  
+
 }
 
-extension ProfileViewController: UITextViewDelegate {
+
+extension ProfileTableViewController: UITextViewDelegate {
   func textViewDidBeginEditing(_ textView: UITextView) {
-  
+
     textView.textColor = .label
   }
-  
+
   func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
     return true
   }

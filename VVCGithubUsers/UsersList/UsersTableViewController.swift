@@ -13,7 +13,7 @@ class UsersTableViewController: UITableViewController {
   var viewModel = UsersTableViewModel()
 
   struct SegueIdentifier {
-    static let profile = "goToProfile"
+    static let profileTable = "goToProfileTable"
   }
 
   private var pendingRequestWorkItem: DispatchWorkItem?
@@ -46,8 +46,8 @@ class UsersTableViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
 
-    if segue.identifier == SegueIdentifier.profile,
-      let destVC = segue.destination as? ProfileViewController,
+    if segue.identifier == SegueIdentifier.profileTable,
+      let destVC = segue.destination as? ProfileTableViewController,
       let _ = viewModel.selectedUser {
 
       destVC.viewModel = viewModel.profileViewModel
@@ -163,7 +163,7 @@ extension UsersTableViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: SegueIdentifier.profile, sender: self)
+    performSegue(withIdentifier: SegueIdentifier.profileTable, sender: self)
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

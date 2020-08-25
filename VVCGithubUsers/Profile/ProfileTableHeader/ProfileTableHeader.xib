@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileTableHeader" customModule="VVCGithubUsers" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarView" destination="Lcx-rh-Kyn" id="5p9-Te-Lbj"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ohD-Di-joB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lcx-rh-Kyn">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Lcx-rh-Kyn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Bz1-hN-C16"/>
+                <constraint firstItem="Lcx-rh-Kyn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GlX-Xi-LJr"/>
+                <constraint firstAttribute="bottom" secondItem="Lcx-rh-Kyn" secondAttribute="bottom" id="Nx6-E5-xn9"/>
+                <constraint firstItem="Lcx-rh-Kyn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X2m-GZ-f7y"/>
+                <constraint firstAttribute="trailing" secondItem="Lcx-rh-Kyn" secondAttribute="trailing" id="ZvS-Vx-asD"/>
+                <constraint firstItem="Lcx-rh-Kyn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oOl-8R-mY5"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="115"/>
+        </view>
+    </objects>
+</document>
