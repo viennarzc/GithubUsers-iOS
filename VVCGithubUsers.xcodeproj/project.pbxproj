@@ -10,6 +10,7 @@
 		865AEBEF24F4B409000AA3C5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */; };
 		865AEBF324F4B6A6000AA3C5 /* ProfileTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */; };
 		865AEBF524F4B6C3000AA3C5 /* ProfileTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */; };
+		865AEBF824F4BE04000AA3C5 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AEBF724F4BE04000AA3C5 /* UITextViewExtensions.swift */; };
 		8664277524E3E41900835CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277424E3E41900835CA6 /* AppDelegate.swift */; };
 		8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277624E3E41900835CA6 /* SceneDelegate.swift */; };
 		8664277924E3E41900835CA6 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664277824E3E41900835CA6 /* UsersTableViewController.swift */; };
@@ -53,6 +54,7 @@
 		865AEBEE24F4B409000AA3C5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		865AEBF224F4B6A6000AA3C5 /* ProfileTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeader.swift; sourceTree = "<group>"; };
 		865AEBF424F4B6C3000AA3C5 /* ProfileTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeader.xib; sourceTree = "<group>"; };
+		865AEBF724F4BE04000AA3C5 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		8664277124E3E41900835CA6 /* VVCGithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVCGithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8664277424E3E41900835CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8664277624E3E41900835CA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				86700D5624E58192008F79D8 /* UITableViewCellExtensions.swift */,
+				865AEBF724F4BE04000AA3C5 /* UITextViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				865AEBF324F4B6A6000AA3C5 /* ProfileTableHeader.swift in Sources */,
 				8664278924E3E95E00835CA6 /* UserItemTableViewCell.swift in Sources */,
 				86700D5724E58192008F79D8 /* UITableViewCellExtensions.swift in Sources */,
+				865AEBF824F4BE04000AA3C5 /* UITextViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
