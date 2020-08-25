@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 
 protocol UserTableCell {
   func setupUI()
@@ -15,14 +17,18 @@ protocol UserTableCell {
   func setContainerBorder()
 }
 
-protocol Normal: UserTableCell {
+protocol ImageStoring {
+  func saveImageToDisk(_ image: UIImage, fileName: String)
+}
+
+protocol Normal: UserTableCell, ImageStoring {
   
 }
 
-protocol Notable: UserTableCell {
+protocol Notable: UserTableCell, ImageStoring {
 
 }
 
-protocol Invertable: UserTableCell {
+protocol Invertable: UserTableCell, ImageStoring {
 
 }

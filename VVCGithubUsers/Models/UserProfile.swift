@@ -11,9 +11,9 @@ import CoreData
 
 class UserProfile: NSManagedObject, Codable {
   @NSManaged var login: String
-  @NSManaged var id: Int16
-  @NSManaged var followers: Int16
-  @NSManaged var following: Int16
+  @NSManaged var id: Int64
+  @NSManaged var followers: Int64
+  @NSManaged var following: Int64
   @NSManaged var avatarURL: String
   @NSManaged var name: String
   @NSManaged var company: String?
@@ -44,9 +44,9 @@ class UserProfile: NSManagedObject, Codable {
 
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.login = try container.decode(String.self, forKey: .login)
-    self.id = try container.decode(Int16.self, forKey: .id)
-    self.following = try container.decode(Int16.self, forKey: .following)
-    self.followers = try container.decode(Int16.self, forKey: .followers)
+    self.id = try container.decode(Int64.self, forKey: .id)
+    self.following = try container.decode(Int64.self, forKey: .following)
+    self.followers = try container.decode(Int64.self, forKey: .followers)
     self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
     self.name = try container.decode(String.self, forKey: .name)
     self.company = try container.decodeIfPresent(String.self, forKey: .company)

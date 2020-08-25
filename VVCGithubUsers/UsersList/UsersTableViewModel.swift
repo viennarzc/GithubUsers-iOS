@@ -13,12 +13,10 @@ import CoreData
 class UsersTableViewModel {
   var cellViewModels: [CellItemable] = []
 
-  private var lastUserID: Int16 = 0
+  private var lastUserID: Int64 = 0
   private(set) var selectedUser: CellItemable?
 
   private(set) var profileViewModel: ProfileViewModel?
-
-  private let persistentContainer: NSPersistentContainer = NetworkManager.shared.persistentContainer
 
   func setSelectedUser(indexPath: IndexPath) {
     selectedUser = cellViewModels[indexPath.row]
@@ -30,8 +28,16 @@ class UsersTableViewModel {
   }
 
   func fetchUsers(completion: @escaping (Error?) -> Void) {
-    if let users = fetchFromStorage(), !users.isEmpty {
+  
+    if let users = fetchFromStorage(),
+      !users.isEmpty {
+      
       self.cellViewModels = mapToCellViewModels(from: users)
+      //save last user id
+      if let lastUser = users.last {
+        self.lastUserID = lastUser.id
+      }
+      
       completion(nil)
       return
     }
@@ -64,6 +70,7 @@ class UsersTableViewModel {
   }
 
   func fetchMoreUsers(completion: @escaping (Error?) -> Void) {
+    print("fire fetch more users")
     NetworkManager.shared.fetchUsers(since: self.lastUserID) { (result) in
       switch result {
       case .failure(let error):
@@ -88,7 +95,7 @@ class UsersTableViewModel {
 
   func fetchFromStorage() -> [GitHubUser]? {
 
-    let managedObjectContext = self.persistentContainer.viewContext
+    let managedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
     let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
     fetchRequest.sortDescriptors = [sortDescriptor]
@@ -107,7 +114,7 @@ class UsersTableViewModel {
 
 protocol CellItemable {
   var userName: String { get set }
-  var id: Int16 { get set }
+  var id: Int64 { get set }
   var details: String { get set }
 
   func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell

@@ -32,6 +32,9 @@
 		86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */; };
 		86700D6324E626A9008F79D8 /* VVCGithubUsers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86700D6124E626A9008F79D8 /* VVCGithubUsers.xcdatamodeld */; };
 		86700D6524E66754008F79D8 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 86700D6424E66754008F79D8 /* users.json */; };
+		86E4EA2A24ECCF65008A0B4F /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4EA2924ECCF65008A0B4F /* PersistenceManager.swift */; };
+		86E4EA2C24EE274C008A0B4F /* ImageStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4EA2B24EE274C008A0B4F /* ImageStoreManager.swift */; };
+		86E4EA2E24EE2F02008A0B4F /* ImageStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4EA2D24EE2F02008A0B4F /* ImageStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		86700D5F24E60C47008F79D8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		86700D6224E626A9008F79D8 /* VVCGithubUsers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VVCGithubUsers.xcdatamodel; sourceTree = "<group>"; };
 		86700D6424E66754008F79D8 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = users.json; path = VVCGithubUsers/users.json; sourceTree = SOURCE_ROOT; };
+		86E4EA2924ECCF65008A0B4F /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		86E4EA2B24EE274C008A0B4F /* ImageStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreManager.swift; sourceTree = "<group>"; };
+		86E4EA2D24EE2F02008A0B4F /* ImageStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,8 @@
 				86700D5524E58178008F79D8 /* Extensions */,
 				8664277424E3E41900835CA6 /* AppDelegate.swift */,
 				8664277624E3E41900835CA6 /* SceneDelegate.swift */,
+				86E4EA2924ECCF65008A0B4F /* PersistenceManager.swift */,
+				86E4EA2B24EE274C008A0B4F /* ImageStoreManager.swift */,
 				86700CF124E4312A008F79D8 /* Models */,
 				86700CEE24E42785008F79D8 /* Networking */,
 				86700CED24E425A0008F79D8 /* UsersList */,
@@ -201,6 +209,7 @@
 		86700D4A24E53359008F79D8 /* VVCGithubUsersTests */ = {
 			isa = PBXGroup;
 			children = (
+				86E4EA2D24EE2F02008A0B4F /* ImageStoreTests.swift */,
 				86700D5324E535DF008F79D8 /* UserListTests.swift */,
 				86700D5D24E5FFDF008F79D8 /* UserProfileTests.swift */,
 				86700D4D24E53359008F79D8 /* Info.plist */,
@@ -332,6 +341,7 @@
 			files = (
 				86700CFE24E4DD34008F79D8 /* UserTableCellViewModel.swift in Sources */,
 				86700CF524E4C78C008F79D8 /* UserTableCell.swift in Sources */,
+				86E4EA2C24EE274C008A0B4F /* ImageStoreManager.swift in Sources */,
 				86700D5C24E5F927008F79D8 /* UserProfile.swift in Sources */,
 				86700CFC24E4CCA0008F79D8 /* UsersTableViewModel.swift in Sources */,
 				86700D0124E4E0CF008F79D8 /* InvertedUserItemTableViewCell.swift in Sources */,
@@ -341,6 +351,7 @@
 				86700CF024E42793008F79D8 /* NetworkManager.swift in Sources */,
 				86700CF824E4C9CE008F79D8 /* NotedUserItemTableViewCell.swift in Sources */,
 				86700D6024E60C47008F79D8 /* ProfileViewModel.swift in Sources */,
+				86E4EA2A24ECCF65008A0B4F /* PersistenceManager.swift in Sources */,
 				86700CF324E4343A008F79D8 /* GitHubUser.swift in Sources */,
 				8664277724E3E41900835CA6 /* SceneDelegate.swift in Sources */,
 				86700D5A24E5F817008F79D8 /* ProfileViewController.swift in Sources */,
@@ -353,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E4EA2E24EE2F02008A0B4F /* ImageStoreTests.swift in Sources */,
 				86700D5E24E5FFDF008F79D8 /* UserProfileTests.swift in Sources */,
 				86700D5424E535DF008F79D8 /* UserListTests.swift in Sources */,
 			);

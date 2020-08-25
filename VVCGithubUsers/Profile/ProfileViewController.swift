@@ -48,17 +48,28 @@ class ProfileViewController: UIViewController {
 
       }
 
-      self.loadAvatar()
-
     }
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    self.loadAvatar()
   }
 
   func loadAvatar() {
     guard let vm = viewModel else { return }
+    
+    // retrieves image if already available in cache
+    if let userProfile = vm.userProfile,
+      let image = ImageStoreManager.shared.getImageFromDisk(of: userProfile.login) {
+      self.userAvatar.image = image
+      return
+    }
 
     guard let userProfile = vm.userProfile,
       let url = URL(string: userProfile.avatarURL) else { return }
-
+    
     NetworkManager.shared.loadImages(with: url) { (image, error) in
       if let error = error {
         print(error)
@@ -67,6 +78,7 @@ class ProfileViewController: UIViewController {
 
       DispatchQueue.main.async {
         self.userAvatar.image = image
+        
       }
 
     }
@@ -90,7 +102,7 @@ class ProfileViewController: UIViewController {
   @IBAction func didTapSaveNotes(_ sender: Any) {
     guard let vm = viewModel, let text = textView.text else { return }
     
-    vm.save(notes: text) { (error) in
+    vm.saveInPrivateQueue(notes: text) { (error) in
       if let error = error {
         print(error)
         
