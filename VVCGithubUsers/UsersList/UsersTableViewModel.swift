@@ -70,7 +70,7 @@ class UsersTableViewModel {
   }
 
   func fetchMoreUsers(completion: @escaping (Error?) -> Void) {
-    print("fire fetch more users")
+    
     NetworkManager.shared.fetchUsers(since: self.lastUserID) { (result) in
       switch result {
       case .failure(let error):
@@ -96,7 +96,7 @@ class UsersTableViewModel {
   func fetchFromStorage() -> [GitHubUser]? {
 
     let managedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
-    let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
+    let fetchRequest = NSFetchRequest<GitHubUser>(entityName: PersistenceManager.EntityName.githubUser)
     let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
     fetchRequest.sortDescriptors = [sortDescriptor]
 

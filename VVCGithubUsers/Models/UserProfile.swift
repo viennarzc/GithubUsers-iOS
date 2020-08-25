@@ -36,7 +36,7 @@ class UserProfile: NSManagedObject, Codable {
   required convenience init(from decoder: Decoder) throws {
     guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,
       let managedObjectContext = decoder.userInfo[codingUserInfoKeyManagedObjectContext] as? NSManagedObjectContext,
-      let entity = NSEntityDescription.entity(forEntityName: "UserProfile", in: managedObjectContext) else {
+      let entity = NSEntityDescription.entity(forEntityName: PersistenceManager.EntityName.userProfile, in: managedObjectContext) else {
         fatalError("Failed to decode UserProfile")
     }
 

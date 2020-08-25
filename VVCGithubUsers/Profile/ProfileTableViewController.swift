@@ -16,7 +16,12 @@ class ProfileTableViewController: UITableViewController {
   @IBOutlet weak var blogLabel: UILabel!
   @IBOutlet weak var textView: UITextView!
 
-  private var tableHeader = ProfileTableHeader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
+  private var tableHeader = ProfileTableHeader(
+    frame: CGRect(
+      x: 0,
+      y: 0,
+      width: UIScreen.main.bounds.width,
+      height: 250))
 
   var viewModel: ProfileViewModel? {
     didSet {
@@ -48,13 +53,6 @@ class ProfileTableViewController: UITableViewController {
 
     }
   }
-
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-
-//    self.loadAvatar()
-  }
-
 
   func loadAvatar() {
     guard let vm = viewModel else { return }
@@ -157,22 +155,3 @@ enum MyError: Error {
 }
 
 
-extension UITextView {
-  func addDoneKeyboardToolbarButton() {
-    let toolBar = UIToolbar()
-    let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonTapped))
-    toolBar.barStyle = .default
-    toolBar.sizeToFit()
-    
-    toolBar.setItems([space, doneButton], animated: false)
-    toolBar.isUserInteractionEnabled = true
-    
-    self.inputAccessoryView = toolBar
-  }
-  
-  @objc
-  private func doneButtonTapped() {
-    self.resignFirstResponder()
-  }
-}

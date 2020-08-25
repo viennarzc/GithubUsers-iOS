@@ -21,8 +21,11 @@ class ProfileViewModel {
   }
 
   func fetchUserProfile(completion: @escaping (Error?) -> Void) {
-    if let users = fetchFromStorage(), (users.first(where: { $0.id == id }) != nil) {
+    if let users = fetchFromStorage(),
+      (users.first(where: { $0.id == id }) != nil) {
+      
       self.userProfile = users.first(where: { $0.id == id })
+      
       completion(nil)
       return
     }
@@ -36,12 +39,13 @@ class ProfileViewModel {
         completion(nil)
       }
     }
+    
   }
 
   func fetchFromStorage() -> [UserProfile]? {
 
     let managedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
-    let fetchRequest = NSFetchRequest<UserProfile>(entityName: "UserProfile")
+    let fetchRequest = NSFetchRequest<UserProfile>(entityName: PersistenceManager.EntityName.userProfile)
     fetchRequest.predicate = NSPredicate(format: "id = %@", "\(String(describing: self.id))")
 
     do {
@@ -56,7 +60,7 @@ class ProfileViewModel {
   func save(notes: String, completion: @escaping (Error?) -> Void) {
     let managedObjectContext: NSManagedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
 
-    let fetchRequest = NSFetchRequest<UserProfile>(entityName: "UserProfile")
+    let fetchRequest = NSFetchRequest<UserProfile>(entityName: PersistenceManager.EntityName.userProfile)
     fetchRequest.predicate = NSPredicate(format: "id = %@", "\(id)")
 
     do {
@@ -83,7 +87,7 @@ class ProfileViewModel {
   func saveInPrivateQueue(notes: String, completion: @escaping (Error?) -> Void) {
     let managedObjectContext: NSManagedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
     
-    let fetchRequest = NSFetchRequest<UserProfile>(entityName: "UserProfile")
+    let fetchRequest = NSFetchRequest<UserProfile>(entityName: PersistenceManager.EntityName.userProfile)
     fetchRequest.predicate = NSPredicate(format: "id = %@", "\(id)")
 
     do {
@@ -111,7 +115,7 @@ class ProfileViewModel {
   func updateUserHasNotes(completion: @escaping (Error?) -> Void) {
     let managedObjectContext: NSManagedObjectContext = PersistenceManager.shared.persistentContainer.viewContext
 
-    let fetchRequest = NSFetchRequest<GitHubUser>(entityName: "GitHubUser")
+    let fetchRequest = NSFetchRequest<GitHubUser>(entityName: PersistenceManager.EntityName.githubUser)
     fetchRequest.predicate = NSPredicate(format: "id = %@", "\(id)")
 
     do {
