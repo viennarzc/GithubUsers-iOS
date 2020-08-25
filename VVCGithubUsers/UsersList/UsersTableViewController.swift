@@ -13,7 +13,6 @@ class UsersTableViewController: UITableViewController {
   var viewModel = UsersTableViewModel()
 
   struct SegueIdentifier {
-    static let profile = "goToProfile"
     static let profileTable = "goToProfileTable"
   }
 
