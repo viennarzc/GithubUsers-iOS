@@ -9,11 +9,6 @@
 import UIKit
 
 class NotedUserItemTableViewCell: UITableViewCell, Notable {
-  func saveImageToDisk(_ image: UIImage, fileName: String) {
-    ImageStoreManager.shared.saveToDisk(image, fileName: fileName)
-  }
-
-
   @IBOutlet weak var container: UIView!
   var imageURL: URL?
   @IBOutlet weak var userNameLabel: UILabel!
@@ -38,6 +33,10 @@ class NotedUserItemTableViewCell: UITableViewCell, Notable {
 
     //we set to default to avoid images being reused in other cells
     avatarView.image = UIImage(systemName: "person.circle")
+  }
+  
+  func saveImageToDisk(_ image: UIImage, fileName: String) {
+    ImageStoreManager.shared.saveToDisk(image, fileName: fileName)
   }
 
   func setContainerBorder() {

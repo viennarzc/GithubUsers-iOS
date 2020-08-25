@@ -9,11 +9,6 @@
 import UIKit
 
 class UserItemTableViewCell: UITableViewCell, Normal {
-  func saveImageToDisk(_ image: UIImage, fileName: String) {
-    ImageStoreManager.shared.saveToDisk(image, fileName: fileName)
-  }
-
-
   @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet weak var userDetailsLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
@@ -43,6 +38,10 @@ class UserItemTableViewCell: UITableViewCell, Normal {
 
   //MARK: - Methods
 
+  func saveImageToDisk(_ image: UIImage, fileName: String) {
+    ImageStoreManager.shared.saveToDisk(image, fileName: fileName)
+  }
+  
   func setContainerBorder() {
     container.layer.borderColor = UIColor.separator.cgColor
     container.layer.borderWidth = 1
