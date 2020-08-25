@@ -116,7 +116,7 @@ class ProfileTableViewController: UITableViewController {
     if let userProfile = vm.userProfile {
       followersLabel.text = "Followers: \(userProfile.followers)"
       followingLabel.text = "Following: \(userProfile.following)"
-      userNameLabel.text = "name: \(userProfile.name)"
+      userNameLabel.text = "name: \(userProfile.name ?? "No Name..shrouded with mystery")"
       companyLabel.text = "company: \(userProfile.company ?? "None")"
       blogLabel.text = "blog: \(userProfile.blog ?? "None")"
       navigationItem.title = userProfile.name
